@@ -25,7 +25,7 @@
           <div class="mx-auto max-w-2xl text-center animate-fade-in">
             <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Blogs</h1>
             <p class="mt-6 text-lg leading-8 text-olg-cream animate-slide-up">
-              Stay connected with the latest insights from OLGnova
+              Stay connected with the latest insights from OLGNova
             </p>
             
             <!-- Newsletter Subscription -->

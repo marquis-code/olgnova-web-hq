@@ -28,7 +28,7 @@
           <div class="mx-auto max-w-2xl text-center animate-fade-in">
             <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Pro-Bono Program</h1>
             <p class="mt-6 text-lg leading-8 text-olg-cream animate-slide-up">
-              At OLGnova, we're committed to giving back through our annual pro-bono initiative.
+              At OLGNova, we're committed to giving back through our annual pro-bono initiative.
             </p>
           </div>
         </div>
@@ -263,15 +263,16 @@
                   />
                   <button 
                     type="submit" 
-                    class="inline-flex items-center justify-center px-4 py-2 bg-olg-green text-olg-blue font-medium rounded-md transition-all duration-300 hover:bg-olg-green-light shadow hover:shadow-lg"
+                    :disabled="isLoading"
+                    class="inline-flex disabled:cursor-not-allowed disabled:opacity-25 items-center justify-center px-4 py-2 bg-olg-green text-olg-blue font-medium rounded-md transition-all duration-300 hover:bg-olg-green-light shadow hover:shadow-lg"
                   >
                     <mail-icon class="h-5 w-5 mr-2" />
-                    Subscribe
+                     {{ isLoading ? 'processing..' : 'Subscribe'}}
                   </button>
                 </div>
-                <p class="mt-3 text-sm text-center text-olg-cream/80">
-                  Subscribe to our newsletter: Let the subscription confirmation go to: olgnovateam@gmail.com
-                </p>
+                <!-- <p class="mt-3 text-sm text-center text-olg-cream/80">
+                  Subscribe to our newsletter,
+                </p> -->
               </form>
             </div>
           </div>
@@ -421,7 +422,10 @@
     BookOpen as BookOpenIcon,
     ChevronDown as ChevronDownIcon
   } from 'lucide-vue-next';
-  
+  import { useProgramEnquiry } from "@/composables/modules/enquires/useProgramEnquiry"
+  const { isLoading: isSubmittingProBono, submitProgramEnquiry } = useProgramEnquiry()
+    import { useSubscribe } from "@/composables/modules/enquires/useSubscribe"
+  const { subscribe, isLoading } = useSubscribe()
   // Interactive elements
   const activeProBonoStep = ref<number | null>(null);
   const hoveredProject = ref<number | null>(null);
@@ -429,7 +433,7 @@
   
   // Interest form
   const showInterestForm = ref(false);
-  const isSubmittingProBono = ref(false);
+  // const isSubmittingProBono = ref(false);
   const proBonoForm = ref({
     organization: '',
     contactName: '',
@@ -444,10 +448,11 @@
     isSubmittingProBono.value = true;
     
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await submitProgramEnquiry(proBonoForm.value)
+    // await new Promise(resolve => setTimeout(resolve, 1500));
     
     // Show success message
-    alert('Thank you for your interest in our pro-bono program! We will notify you when the application window opens.');
+    // alert('Thank you for your interest in our pro-bono program! We will notify you when the application window opens.');
     
     // Reset form and close modal
     proBonoForm.value = {
@@ -469,10 +474,15 @@
   
   const subscribeToNewsletter = async () => {
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 800));
+    // await new Promise(resolve => setTimeout(resolve, 800));
+    const payloadObj = {
+      email: newsletterEmail.value,
+      interests: 'Pro-Bono Program'
+    }
+    await subscribe(payloadObj)
     
     // Show success message
-    alert(`Thank you for subscribing with ${newsletterEmail.value}! A confirmation has been sent to olgnovateam@gmail.com.`);
+    // alert(`Thank you for subscribing with ${newsletterEmail.value}! A confirmation has been sent to olgnovateam@gmail.com.`);
     
     // Reset form
     newsletterEmail.value = '';

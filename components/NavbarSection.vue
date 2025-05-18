@@ -1,82 +1,92 @@
 <template>
-  <header class="fixed inset-x-0 top-0 z-50 bg-white/10 transition-all duration-300" :class="{ 'bg-white/90 backdrop-blur-sm shadow-md': scrolled }">
-    <nav class="flex items-center justify-between p-4 lg:px-8" aria-label="Global">
-      <div class="flex lg:flex-1">
-        <NuxtLink to="/" class="flex items-center gap-2 group">
-          <span class="sr-only">OLGnova</span>
-          <div class="text-olg-green w-10 h-10 transition-transform duration-300 group-hover:rotate-45">
-            <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M50 0C22.4 0 0 22.4 0 50c0 27.6 22.4 50 50 50s50-22.4 50-50c0-27.6-22.4-50-50-50zm0 90c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z"/>
-              <path d="M50 70c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20zm0-30c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10z"/>
-            </svg>
+  <header 
+    class="fixed inset-x-0 top-0 z-50 bg-white transition-all duration-500" 
+    :class="{ 'shadow-lg': scrolled }"
+  >
+    <nav class="container mx-auto flex items-center justify-between p-4 lg:px-8" aria-label="Global">
+      <!-- Logo on the left -->
+      <div class="flex items-center">
+        <NuxtLink to="/" class="logo-container relative group">
+          <div class="logo-wrapper overflow-hidden rounded-full relative">
+            <img 
+              src="@/assets/img/logo-updated.jpg" 
+              class="h-12 w-12 lg:h-16 lg:w-16 object-cover transition-all duration-500 transform group-hover:scale-110" 
+              :class="{ 'h-10 w-10 lg:h-14 lg:w-14': scrolled }"
+              alt="Logo"
+            />
+            <div class="absolute inset-0 bg-olg-blue/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
           </div>
-          <h1 class="text-olg-blue text-2xl font-sans font-bold transition-all duration-300 group-hover:tracking-wider">
-            OLGnova
-          </h1>
+          <div class="logo-pulse absolute inset-0 rounded-full border-2 border-olg-green opacity-0 group-hover:opacity-100"></div>
+        </NuxtLink>
+      </div>
+
+      <!-- Desktop navigation items in the center -->
+      <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center">
+        <div class="flex space-x-8">
+          <NuxtLink 
+            v-for="item in navigation" 
+            :key="item.name" 
+            :to="item.path" 
+            class="nav-link text-base font-semibold text-olg-blue hover:text-olg-green relative overflow-hidden group py-2"
+            :class="{ 'active-link text-olg-green': isActive(item.path) }"
+          >
+            <span class="nav-text relative block">{{ item.name }}</span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-olg-green transform transition-transform duration-300" 
+                  :class="isActive(item.path) ? 'translate-y-0' : 'translate-y-1 group-hover:translate-y-0'"></span>
+          </NuxtLink>
+        </div>
+      </div>
+      
+      <!-- Programs button on the right -->
+      <div class="hidden lg:flex lg:items-center">
+        <NuxtLink 
+          to="/programs" 
+          class="cta-button text-base font-semibold text-white bg-olg-blue px-6 py-3 rounded-md hover:bg-olg-green transition-all duration-300 flex items-center gap-2 relative overflow-hidden group"
+          :class="{ 'bg-olg-green': isActive('/programs') }"
+        >
+          <span class="relative z-10">Programs</span>
+          <span class="arrow-icon inline-block transition-all duration-300 group-hover:translate-x-1 relative z-10" aria-hidden="true">&rarr;</span>
+          <span class="absolute inset-0 bg-olg-green transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
         </NuxtLink>
       </div>
       
-      <div class="flex lg:hidden">
+      <!-- Mobile menu button -->
+      <div class="lg:hidden">
         <button 
           type="button" 
-          class="inline-flex items-center justify-center rounded-md p-2.5 text-olg-blue hover:bg-olg-blue/10 transition-colors duration-200" 
+          class="hamburger-button inline-flex items-center justify-center rounded-md p-2.5 text-olg-blue hover:bg-olg-blue/10 transition-colors duration-200" 
           @click="toggleMobileMenu"
           aria-label="Toggle menu"
         >
           <span class="sr-only">Open main menu</span>
           <div class="relative w-6 h-6">
             <span 
-              class="absolute block h-0.5 bg-current transform transition-all duration-300"
+              class="hamburger-line absolute block h-0.5 bg-current transform transition-all duration-300"
               :class="[
-                mobileMenuOpen ? 'rotate-45 top-3' : 'top-1.5',
-                'w-6'
+                mobileMenuOpen ? 'rotate-45 top-3 w-6' : 'top-1.5 w-6',
               ]"
             ></span>
             <span 
-              class="absolute top-3 block h-0.5 bg-current transform transition-all duration-300"
+              class="hamburger-line absolute top-3 block h-0.5 bg-current transform transition-all duration-300"
               :class="[
-                mobileMenuOpen ? 'opacity-0' : 'opacity-100',
-                'w-6'
+                mobileMenuOpen ? 'opacity-0 w-6' : 'opacity-100 w-6',
               ]"
             ></span>
             <span 
-              class="absolute block h-0.5 bg-current transform transition-all duration-300"
+              class="hamburger-line absolute block h-0.5 bg-current transform transition-all duration-300"
               :class="[
-                mobileMenuOpen ? '-rotate-45 top-3' : 'top-4.5',
-                'w-6'
+                mobileMenuOpen ? '-rotate-45 top-3 w-6' : 'top-4.5 w-6',
               ]"
             ></span>
           </div>
         </button>
       </div>
-      
-      <div class="hidden lg:flex lg:gap-x-8 z-50">
-        <NuxtLink 
-          v-for="item in navigation" 
-          :key="item.name" 
-          :to="item.path" 
-          class="text-base font-semibold text-olg-blue hover:text-olg-green relative overflow-hidden group py-2"
-        >
-          {{ item.name }}
-          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-olg-green transform translate-y-1 transition-transform duration-300 group-hover:translate-y-0"></span>
-        </NuxtLink>
-      </div>
-      
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <NuxtLink 
-          to="/programs" 
-          class="text-base font-semibold text-white bg-olg-blue px-4 py-2 rounded-md hover:bg-olg-green transition-colors duration-300 flex items-center gap-1"
-        >
-          Programs 
-          <span class="inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
-        </NuxtLink>
-      </div>
     </nav>
     
-    <!-- Mobile menu -->
+    <!-- Mobile menu with enhanced animations and active states -->
     <div 
       class="lg:hidden overflow-hidden transition-all duration-500 ease-in-out"
-      :class="mobileMenuOpen ? 'max-h-[500px]' : 'max-h-0'"
+      :class="mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'"
     >
       <div class="bg-white px-6 py-4 shadow-lg">
         <div class="space-y-1">
@@ -84,9 +94,17 @@
             v-for="(item, index) in navigation" 
             :key="item.name" 
             :to="item.path" 
-            class="block rounded-lg px-3 py-2 text-base font-semibold text-olg-blue hover:bg-olg-blue/10 transition-all duration-200"
-            :style="{ transitionDelay: `${index * 50}ms` }"
-            :class="mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'"
+            class="mobile-nav-item block rounded-lg px-3 py-2 text-base font-semibold transition-all duration-300"
+            :class="[
+              isActive(item.path) 
+                ? 'bg-olg-blue/10 text-olg-green border-l-4 border-olg-green pl-4' 
+                : 'text-olg-blue hover:bg-olg-blue/10 hover:pl-4'
+            ]"
+            :style="{ 
+              transitionDelay: `${index * 70}ms`,
+              transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(-20px)',
+              opacity: mobileMenuOpen ? '1' : '0'
+            }"
             @click="mobileMenuOpen = false"
           >
             {{ item.name }}
@@ -95,13 +113,21 @@
           <div class="pt-4 mt-4 border-t border-gray-200">
             <NuxtLink 
               to="/programs" 
-              class="flex items-center justify-between rounded-lg px-3 py-2 text-base font-semibold text-olg-blue hover:bg-olg-blue/10 transition-all duration-200"
-              :class="mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'"
-              :style="{ transitionDelay: `${navigation.length * 50}ms` }"
+              class="mobile-cta flex items-center justify-between rounded-lg px-3 py-3 text-base font-semibold transition-all duration-300"
+              :class="[
+                isActive('/programs') 
+                  ? 'bg-olg-green text-white' 
+                  : 'text-white bg-olg-blue hover:bg-olg-green'
+              ]"
+              :style="{ 
+                transitionDelay: `${navigation.length * 70 + 100}ms`,
+                transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(-20px)',
+                opacity: mobileMenuOpen ? '1' : '0'
+              }"
               @click="mobileMenuOpen = false"
             >
               Programs
-              <span aria-hidden="true" class="text-olg-green">&rarr;</span>
+              <span aria-hidden="true" class="text-white transition-transform duration-300">&rarr;</span>
             </NuxtLink>
           </div>
         </div>
@@ -111,8 +137,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
 const navigation = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
@@ -122,14 +150,36 @@ const navigation = [
 
 const mobileMenuOpen = ref(false)
 const scrolled = ref(false)
+const lastScrollY = ref(0)
+const isNavVisible = ref(true)
+
+// Function to check if a route is active
+const isActive = (path: string) => {
+  if (path === '/') {
+    return route.path === '/'
+  }
+  return route.path.startsWith(path)
+}
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
 }
 
-// Handle scroll events to change navbar appearance
+// Enhanced scroll handler with hide-on-scroll-down behavior
 const handleScroll = () => {
-  scrolled.value = window.scrollY > 20
+  const currentScrollY = window.scrollY
+  
+  // Determine if scrolled past threshold
+  scrolled.value = currentScrollY > 20
+  
+  // Hide navbar on scroll down, show on scroll up
+  if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
+    isNavVisible.value = false
+  } else {
+    isNavVisible.value = true
+  }
+  
+  lastScrollY.value = currentScrollY
 }
 
 // Close mobile menu when window is resized to desktop size
@@ -139,15 +189,50 @@ const handleResize = () => {
   }
 }
 
+// Close mobile menu when clicking outside
+const handleClickOutside = (event: MouseEvent) => {
+  const target = event.target as HTMLElement
+  if (mobileMenuOpen.value && !target.closest('nav')) {
+    mobileMenuOpen.value = false
+  }
+}
+
+// Initialize animations when component is mounted
+const initAnimations = () => {
+  // Add staggered entrance animations for desktop nav items
+  const navLinks = document.querySelectorAll('.nav-link')
+  navLinks.forEach((link, index) => {
+    link.classList.add('animate-fade-in')
+    ;(link as HTMLElement).style.animationDelay = `${index * 100}ms`
+  })
+  
+  // Logo entrance animation
+  const logo = document.querySelector('.logo-container')
+  if (logo) {
+    logo.classList.add('animate-logo-entrance')
+  }
+}
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', handleResize)
+  document.addEventListener('click', handleClickOutside)
+  
   handleScroll() // Check initial scroll position
+  
+  // Initialize animations after a short delay
+  setTimeout(initAnimations, 100)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
   window.removeEventListener('resize', handleResize)
+  document.removeEventListener('click', handleClickOutside)
+})
+
+// Watch for route changes to close mobile menu and update active states
+watch(() => route.path, () => {
+  mobileMenuOpen.value = false
 })
 </script>
 
@@ -187,5 +272,146 @@ onUnmounted(() => {
 
 .hover\:text-olg-green:hover {
   color: var(--olg-green);
+}
+
+.border-olg-green {
+  border-color: var(--olg-green);
+}
+
+/* Active link styles */
+.active-link {
+  color: var(--olg-green);
+}
+
+.active-link .nav-text {
+  font-weight: 700;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes navTextEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Applied animations */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-logo-entrance {
+  animation: logoEntrance 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.logo-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+.nav-text {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.nav-link:hover .nav-text {
+  transform: translateY(-2px);
+}
+
+/* Hamburger button animations */
+.hamburger-line {
+  transition: all 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.hamburger-button:hover .hamburger-line:nth-child(1) {
+  width: 50%;
+}
+
+.hamburger-button:hover .hamburger-line:nth-child(3) {
+  width: 75%;
+}
+
+/* Mobile menu item animations */
+.mobile-nav-item {
+  transition: all 0.3s ease;
+}
+
+/* CTA button animation */
+.cta-button:hover .arrow-icon {
+  animation: arrowBounce 1s infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+/* Logo container styles */
+.logo-container {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-wrapper {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container:hover {
+  transform: translateY(-2px);
+}
+
+/* Add extra padding to the navbar to accommodate the larger logo */
+@media (min-width: 1024px) {
+  nav {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
 }
 </style>

@@ -34,7 +34,7 @@
           </svg>
         </div>
         <div class="logo-text">
-          <span class="olg">OLG</span><span class="nova">nova</span>
+          <span class="olg">OLG</span><span class="nova">Nova</span>
         </div>
       </div>
 
@@ -150,16 +150,32 @@ import image1 from "@/assets/img/founder2.jpg"
   import image4 from "@/assets/img/founder6.png"
   import image5 from "@/assets/img/founder10.png"
     import image6 from "@/assets/img/others7.jpg"
-      import image7 from "@/assets/img/others1.jpg"
+      // import image7 from "@/assets/img/others1.jpg"
         import image8 from "@/assets/img/others2.jpg"
           import image9 from "@/assets/img/others3.png"
             import image10 from "@/assets/img/others4.jpg"
               import image11 from "@/assets/img/others5.jpg"
-                import image12 from "@/assets/img/others6.jpg"
+                import image12 from "@/assets/img/team-speaker.jpg"
+
+                     import image13 from "@/assets/img/team-members1.jpg"
+                          import image14 from "@/assets/img/team-members2.jpg"
+                               import image15 from "@/assets/img/team-members3.jpg"
+                                    import image16 from "@/assets/img/team-members4.jpg"
+                                         import image17 from "@/assets/img/team-members5.jpg"
+                                              import image18 from "@/assets/img/team-members6.jpg"
 
 // Define carousel images
 const carouselImages = [
-  image1, image2, image3, image4,image5, image6, image7, image8, image9, image10,
+  image1, image2, image3, image4,image5, image6,
+  // image7,
+  image8, 
+  // image9, 
+  image10, image12, 
+  // image13, 
+  // image14, 
+  image15, 
+  // image16, 
+  image17, image18,   
   // image11, image12
 ]
 

@@ -48,7 +48,7 @@
             </h2>
             
             <p class="text-lg text-gray-600 mb-8 animate-slide-up" style="animation-delay: 300ms;">
-              Thank you for your interest in joining OLGnova.
+              Thank you for your interest in joining OLGNova.
             </p>
             
             <div class="max-w-2xl mx-auto prose prose-lg prose-olg animate-slide-up" style="animation-delay: 400ms;">
@@ -199,7 +199,7 @@
           <h3 class="text-lg font-medium text-gray-900 mb-4">Follow us for future opportunities</h3>
           <div class="flex justify-center space-x-6">
             <a 
-              href="https://www.linkedin.com/in/olgnova-a4ab76356" 
+              href="https://www.linkedin.com/in/OLGNova-a4ab76356" 
               target="_blank" 
               rel="noopener noreferrer"
               class="text-olg-blue hover:text-olg-blue-dark transition-colors"

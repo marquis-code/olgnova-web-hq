@@ -33,7 +33,7 @@
           <div class="mx-auto max-w-2xl text-center animate-fade-in">
             <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">License</h1>
             <p class="mt-6 text-lg leading-8 text-olg-cream animate-slide-up">
-              Usage Rights for OLGnova Materials
+              Usage Rights for OLGNova Materials
             </p>
           </div>
         </div>
@@ -54,7 +54,7 @@
             >
               <div class="prose prose-lg prose-olg max-w-none">
                 <p class="lead-paragraph">
-                  Clients receive full rights to use, modify, and distribute the final deliverables provided by OLGnova 
+                  Clients receive full rights to use, modify, and distribute the final deliverables provided by OLGNova 
                   once all project payments have been completed.
                 </p>
                 
@@ -75,7 +75,7 @@
                   </h2>
                   <p>
                     For public distribution of materials such as whitepapers, templates, or published content, 
-                    attribution to OLGnova is required. Clients are welcome to adapt these materials for internal use 
+                    attribution to OLGNova is required. Clients are welcome to adapt these materials for internal use 
                     without attribution, but public use must clearly acknowledge the source.
                   </p>
                 </div>
@@ -83,10 +83,10 @@
                 <div class="license-section animate-slide-up" style="animation-delay: 400ms;">
                   <h2 class="flex items-center">
                     <share-icon class="h-6 w-6 mr-2 text-olg-blue" />
-                    OLGnova Rights
+                    OLGNova Rights
                   </h2>
                   <p>
-                    OLGnova retains the right to use anonymized elements of project work, such as case examples or process insights, 
+                    OLGNova retains the right to use anonymized elements of project work, such as case examples or process insights, 
                     in future knowledge-sharing efforts, including training and research.
                   </p>
                 </div>

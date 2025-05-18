@@ -12,11 +12,11 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto max-w-2xl sm:text-center">
             <!-- <h2 class="text-base/7 font-semibold text-indigo-600">Everything you need</h2> -->
-            <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-balance sm:text-5xl">Welcome to OLGnova.</p>
+            <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-balance sm:text-5xl">Welcome to OLGNova.</p>
             <p class="mt-6 text-lg/8 text-gray-600">We transform insights into impact by combining research, communication, and consulting to help organizations grow and create meaningful change.</p>
           </div>
         </div>
-        <div class="relative overflow-hidden pt-16">
+        <!-- <div class="relative overflow-hidden pt-16">
           <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <video 
               class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10" width="2432" height="1442"
@@ -27,13 +27,11 @@
             >
               <source :src="currentVideo" type="video/mp4">
             </video>
-            <!-- <img src="https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png" alt="App screenshot" class="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10" width="2432" height="1442" /> -->
-             <!-- <video src="./company-profile.mp4" /> -->
             <div class="relative" aria-hidden="true">
               <div class="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]" />
             </div>
           </div>
-        </div>
+        </div> -->
 
         <TrustedPartners />
       </div>
@@ -60,7 +58,8 @@
         </div>
         <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Get in touch</h2>
         <p class="mt-6 text-lg/8 text-gray-600">
-          We're here to help! For personalized assistance, contact us directly or fill out our simple online form to get the answers you need <a class="font-medium underline text-green-700" href="https://forms.gle/zMUkbgP56JNvt4hE8">https://forms.gle/zMUkbgP56JNvt4hE8</a>
+          We're here to help. For personalized assistance, please contact us directly or fill out our simple online form by <a class="font-bold underline text-olg-blue" href="https://forms.gle/zMUkbgP56JNvt4hE8"> clicking here</a> to get the answers you need.
+          <!-- We're here to help! For personalized assistance, contact us directly or fill out our simple online form to get the answers you need by  -->
         </p>
         <dl class="mt-10 space-y-4 text-base/7 text-gray-600">
           <div class="flex gap-x-4">
@@ -101,42 +100,42 @@
         </dl>
       </div>
     </div>
-    <form action="#" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+    <form @submit.prevent="submitEnquiry" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
       <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label for="first-name" class="block text-sm/6 font-semibold text-gray-900">First name</label>
             <div class="mt-2.5">
-              <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
+              <input v-model="payload.firstName" type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
             </div>
           </div>
           <div>
             <label for="last-name" class="block text-sm/6 font-semibold text-gray-900">Last name</label>
             <div class="mt-2.5">
-              <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-olg-blue">
+              <input v-model="payload.lastName" type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-olg-blue">
             </div>
           </div>
           <div class="sm:col-span-2">
             <label for="email" class="block text-sm/6 font-semibold text-gray-900">Email</label>
             <div class="mt-2.5">
-              <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-olg-blue">
+              <input v-model="payload.email" type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-olg-blue">
             </div>
           </div>
           <div class="sm:col-span-2">
             <label for="phone-number" class="block text-sm/6 font-semibold text-gray-900">Phone number</label>
             <div class="mt-2.5">
-              <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-olg-blue">
+              <input v-model="payload.phone" type="tel" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-olg-blue">
             </div>
           </div>
           <div class="sm:col-span-2">
             <label for="message" class="block text-sm/6 font-semibold text-gray-900">Message</label>
             <div class="mt-2.5">
-              <textarea name="message" id="message" rows="4" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-olg-blue"></textarea>
+              <textarea v-model="payload.message" name="message" id="message" rows="4" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-olg-blue"></textarea>
             </div>
           </div>
         </div>
         <div class="mt-8 flex justify-end">
-          <button type="submit" class="rounded-md w-full bg-olg-blue px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-olg-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olg-blue">Send message</button>
+          <button :disabled="isLoading" type="submit" class="rounded-md disabled:cursor-not-allowed disabled:opacity-25 w-full bg-olg-blue px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-olg-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olg-blue">{{ isLoading ? "processing..." : 'Send message' }}</button>
         </div>
       </div>
     </form>
@@ -165,6 +164,8 @@ import {
 } from '@heroicons/vue/20/solid'
 import NavbarSection from '../components/NavbarSection.vue'
 import FaqSection from '../components/FaqSection.vue'
+import { useGeneralEnquiry } from "@/composables/modules/enquires/useGeneralEnquiry"
+const { submitEnquiry, isLoading, payload } = useGeneralEnquiry()
 
 const navigation = [
   { name: 'Product', href: '#' },

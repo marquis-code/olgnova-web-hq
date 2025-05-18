@@ -1,5 +1,5 @@
 <template>
-  <main class="programs-page">
+  <main class="programs-page bg-olg-blue">
     <!-- Animated Background -->
     <div class="fixed inset-0 -z-10 bg-gradient-to-br from-olg-blue-dark via-olg-blue to-olg-blue-dark">
       <div class="absolute inset-0 overflow-hidden opacity-10">
@@ -372,6 +372,8 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useSubscribe } from "@/composables/modules/enquires/useSubscribe"
+const { subscribe, isLoading } = useSubscribe()
 import { 
   ArrowDown, 
   ArrowRight, 
@@ -545,18 +547,25 @@ const openProgramDetails = (program: Program) => {
   showModal.value = true
 }
 
-const subscribeToUpdates = () => {
+const subscribeToUpdates = async () => {
   // Here you would typically send the email to your backend
-  console.log('Subscribing email:', subscriptionEmail.value)
-  
-  // For demo purposes, just show success notification
+  // console.log('Subscribing email:', subscriptionEmail.value)
+
+  const payloadObj = {
+      email: subscriptionEmail.value,
+      interests: 'Programs'
+    }
+
+  await subscribe(payloadObj).then(() => {
   showNotification.value = true
   subscriptionEmail.value = ''
+  })
+  // For demo purposes, just show success notification
   
-  // Hide notification after 5 seconds
-  setTimeout(() => {
-    showNotification.value = false
-  }, 5000)
+  // // Hide notification after 5 seconds
+  // setTimeout(() => {
+  //   showNotification.value = false
+  // }, 5000)
 }
 
 const scrollToPrograms = () => {
@@ -568,7 +577,7 @@ const scrollToPrograms = () => {
 </script>
 
 <style scoped>
-/* OLGnova Brand Colors */
+/* OLGNova Brand Colors */
 .bg-olg-blue { background-color: #3A6E9F; }
 .bg-olg-blue-light { background-color: #4A7EAF; }
 .bg-olg-blue-dark { background-color: #2A5E8F; }

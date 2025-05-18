@@ -15,7 +15,7 @@
             </h2>
             
             <!-- Testimonial Slider -->
-            <div class="mt-6 relative h-48 sm:h-40 overflow-hidden">
+            <div class="mt-6 relative h-72 overflow-hidden">
               <transition-group 
                 name="testimonial-slide" 
                 tag="div" 
@@ -47,7 +47,7 @@
               </transition-group>
               
               <!-- Testimonial Navigation -->
-              <div class="absolute bottom-0 left-0 right-0 flex justify-center space-x-2">
+              <!-- <div class="absolute bottom-0 left-0 right-0 flex justify-center space-x-2">
                 <button 
                   v-for="(_, index) in testimonials" 
                   :key="index"
@@ -56,7 +56,7 @@
                   :class="currentTestimonial === index ? 'bg-olg-blue w-4' : 'bg-gray-300'"
                   aria-label="View testimonial"
                 ></button>
-              </div>
+              </div> -->
             </div>
             
             <div class="mt-8 flex items-center gap-x-6 animate-slide-up" style="animation-delay: 300ms;">

@@ -48,7 +48,7 @@
         <h2 class="text-4xl font-bold tracking-tight text-white sm:text-5xl animate-slide-up">
           Boost your productivity.
         </h2>
-        <p class="mx-auto mt-6 max-w-xl text-lg text-olg-cream/90 animate-slide-up" style="animation-delay: 200ms;">
+        <p class="mx-auto mt-6 max-w-xl text-olg-green text-lg text-olg-cream/90 animate-slide-up" style="animation-delay: 200ms;">
           Transform your workflow with our tailored services – designed to simplify complexity and deliver measurable impact
         </p>
         
@@ -106,7 +106,7 @@
           
           <ul class="space-y-4">
             <li class="transform transition-all duration-300 hover:translate-x-2">
-              <NuxtLink to="/teams" class="group flex items-center text-olg-cream/80 hover:text-olg-green">
+              <NuxtLink to="/teams" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
                   Teams
@@ -115,7 +115,7 @@
               </NuxtLink>
             </li>
             <li class="transform transition-all duration-300 hover:translate-x-2">
-              <NuxtLink to="/programs" class="group flex items-center text-olg-cream/80 hover:text-olg-green">
+              <NuxtLink to="/programs" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
                   Programs
@@ -124,7 +124,7 @@
               </NuxtLink>
             </li>
             <li class="transform transition-all duration-300 hover:translate-x-2">
-              <NuxtLink to="/about" class="group flex items-center text-olg-cream/80 hover:text-olg-green">
+              <NuxtLink to="/about" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
                   About
@@ -133,7 +133,7 @@
               </NuxtLink>
             </li>
             <li class="transform transition-all duration-300 hover:translate-x-2">
-              <NuxtLink to="/jobs" class="group flex items-center text-olg-cream/80 hover:text-olg-green">
+              <NuxtLink to="/jobs" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
                   Jobs
@@ -164,7 +164,7 @@
           
           <ul class="space-y-4">
             <li class="transform transition-all duration-300 hover:translate-x-2">
-              <NuxtLink to="/blogs" class="group flex items-center text-olg-cream/80 hover:text-olg-green">
+              <NuxtLink to="/blogs" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
                   Blogs
@@ -173,7 +173,7 @@
               </NuxtLink>
             </li>
             <li class="transform transition-all duration-300 hover:translate-x-2">
-              <NuxtLink to="/guides" class="group flex items-center text-olg-cream/80 hover:text-olg-green">
+              <NuxtLink to="/guides" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
                   Guides
@@ -182,7 +182,7 @@
               </NuxtLink>
             </li>
             <li class="transform transition-all duration-300 hover:translate-x-2">
-              <NuxtLink to="/faq" class="group flex items-center text-olg-cream/80 hover:text-olg-green">
+              <NuxtLink to="/faq" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
                   Faq
@@ -213,7 +213,7 @@
           
           <ul class="space-y-4">
             <li class="transform transition-all duration-300 hover:translate-x-2">
-              <NuxtLink to="/license" class="group flex items-center text-olg-cream/80 hover:text-olg-green">
+              <NuxtLink to="/license" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
                   License
@@ -222,7 +222,7 @@
               </NuxtLink>
             </li>
             <li class="transform transition-all duration-300 hover:translate-x-2">
-              <NuxtLink to="/privacy-policy" class="group flex items-center text-olg-cream/80 hover:text-olg-green">
+              <NuxtLink to="/privacy-policy" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
                   Privacy Policy
@@ -231,7 +231,7 @@
               </NuxtLink>
             </li>
             <li class="transform transition-all duration-300 hover:translate-x-2">
-              <NuxtLink to="/terms-of-service" class="group flex items-center text-olg-cream/80 hover:text-olg-green">
+              <NuxtLink to="/terms-of-service" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
                   Terms of Service
@@ -248,15 +248,15 @@
         <div class="flex flex-col md:flex-row gap-8 items-center">
           <div class="flex-1">
             <h3 class="text-xl font-bold text-white">Stay in the loop</h3>
-            <p class="mt-2 text-olg-cream/90">Subscribe to our newsletter for the latest updates and insights.</p>
+            <p class="mt-2 text-white text-olg-cream/90">Subscribe to our newsletter for the latest updates and insights.</p>
           </div>
           <div class="w-full md:w-auto">
-            <div class="flex w-full max-w-md">
-              <input type="email" placeholder="Enter your email" class="w-full min-w-0 flex-auto rounded-l-lg border-0 bg-white/10 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-olg-green sm:text-sm" />
-              <button type="submit" class="flex-none rounded-r-lg bg-olg-green px-3.5 py-2.5 text-sm font-semibold text-olg-blue shadow-sm hover:bg-olg-green/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olg-green transition-all duration-300">
-                Subscribe
+            <form @submit.prevent="subscribeToNewsletter" class="flex w-full max-w-md">
+              <input v-model="newsletterEmail" type="email" placeholder="Enter your email" class="w-full min-w-0 flex-auto rounded-l-lg border-0 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-olg-green sm:text-sm" />
+              <button :disabled="isLoading" type="submit" class="flex-none disabled:cursor-not-allowed disabled:opacity-25 rounded-r-lg bg-olg-green px-3.5 py-2.5 text-sm font-semibold text-olg-blue shadow-sm hover:bg-olg-green/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-olg-green transition-all duration-300">
+                {{ isLoading ? 'processing..' : 'Subscribe'}}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -280,7 +280,7 @@
           
           <!-- LinkedIn Icon with hover animation -->
           <a 
-            href="https://www.linkedin.com/in/olgnova-a4ab76356" 
+            href="https://www.linkedin.com/in/OLGNova-a4ab76356" 
             class="group relative text-olg-cream/60 transition-colors duration-300 hover:text-white"
             target="_blank"
             rel="noopener noreferrer"
@@ -303,11 +303,11 @@
                   <path d="M30 50 L50 70 L70 50" stroke="#B5D89B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </div>
-              <div class="ml-2 text-lg font-bold text-olg-cream">OLG<span class="text-olg-green">nova</span></div>
+              <div class="ml-2 text-lg font-bold text-olg-cream">OLG<span class="text-olg-green">Nova</span></div>
             </div>
           </div>
-          <p class="text-sm text-olg-cream/60 typing-animation">
-            &copy; {{ currentYear }} OLGnova Inc. All rights reserved.
+          <p class="text-sm text-white text-olg-cream/60 typing-animation">
+            &copy; {{ currentYear }} OLGNova Inc. All rights reserved.
           </p>
         </div>
       </div>
@@ -317,13 +317,33 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { useSubscribe } from "@/composables/modules/enquires/useSubscribe"
+const { subscribe, isLoading } = useSubscribe()
 
 // Get current year for copyright
 const currentYear = new Date().getFullYear();
+
+const newsletterEmail = ref('');
+
+const subscribeToNewsletter = async () => {
+    // Simulate API call
+    // await new Promise(resolve => setTimeout(resolve, 800));
+    const payloadObj = {
+      email: newsletterEmail.value,
+      interests: 'Pro-Bono Program'
+    }
+    await subscribe(payloadObj)
+    
+    // Show success message
+    // alert(`Thank you for subscribing with ${newsletterEmail.value}! A confirmation has been sent to olgnovateam@gmail.com.`);
+    
+    // Reset form
+    newsletterEmail.value = '';
+  };
 </script>
 
 <style scoped>
-/* OLGnova Brand Colors */
+/* OLGNova Brand Colors */
 :deep(.bg-olg-blue) { background-color: #3A6E9F; }
 :deep(.bg-olg-blue-light) { background-color: #4A7EAF; }
 :deep(.bg-olg-green) { background-color: #B5D89B; }

@@ -91,9 +91,9 @@
                 </span>
               </div>
               
-              <h3 class="text-xl font-bold text-blue-800 mb-3 line-clamp-2 hover:text-blue-600 transition-colors duration-300">
+              <a :href="publication.link" class="text-xl font-bold text-blue-800 mb-3 line-clamp-2 hover:text-blue-600 transition-colors duration-300">
                 {{ publication.title }}
-              </h3>
+              </a>
               
               <div class="flex items-center text-sm text-blue-500 mb-4">
                 <CalendarIcon class="w-4 h-4 mr-1" />
@@ -103,7 +103,7 @@
                 <span>{{ publication.authors }}</span>
               </div>
               
-              <p class="text-blue-700 mb-6 line-clamp-3">{{ publication.abstract }}</p>
+              <a :href="publication.link" class="text-blue-700 mb-6 line-clamp-3">{{ publication.abstract }}</a>
               
               <div class="flex justify-between items-center">
                 <span class="text-sm text-blue-600 font-medium">{{ publication.journal }}</span>
@@ -176,18 +176,20 @@
           <h2 class="text-3xl font-bold text-blue-700 mb-4 animate-title-delayed">Stay Updated</h2>
           <p class="text-blue-600 mb-8 animate-fade-in-delayed">Subscribe to our newsletter to receive the latest research publications</p>
           
-          <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto animate-fade-in-up-delayed">
+          <form @submit.prevent="subscribeToNewsletter" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto animate-fade-in-up-delayed">
             <input 
               type="email" 
+              v-model="newsletterEmail"
               placeholder="Your email address" 
               class="flex-grow px-4 py-3 rounded-lg border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
             />
             <button 
               type="submit" 
-              class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 flex items-center justify-center group hover:scale-105"
+              :disabled="isLoading"
+              class="bg-blue-600 disabled:cursor-not-allowed disabled:opacity-25 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 flex items-center justify-center group hover:scale-105"
             >
               <MailIcon class="w-5 h-5 mr-2 group-hover:animate-ping" />
-              Subscribe
+              {{ isLoading ? 'processing..' : 'Subscribe'}}
             </button>
           </form>
         </div>
@@ -197,6 +199,9 @@
   
   <script setup lang="ts">
   import { ref, computed, onMounted } from 'vue'
+  import { useSubscribe } from "@/composables/modules/enquires/useSubscribe"
+  const { subscribe, isLoading } = useSubscribe()
+
   import { 
     BookOpen as BookOpenIcon, 
     Users as UsersIcon, 
@@ -245,7 +250,7 @@
     {
       id: 3,
       title: "Interdisciplinary cross-sectoral strategies to mitigate health workforce migration in Africa",
-      authors: "Various Authors",
+      authors: "Oke et al.",
       year: 2024,
       journal: "ScienceDirect",
       link: 'https://www.sciencedirect.com/science/article/pii/S2949916X25000039',
@@ -255,7 +260,7 @@
     {
       id: 4,
       title: "Assessing the knowledge, attitudes, and perceptions toward smoking cessation among medical students in Rwanda",
-      authors: "Various Authors",
+      authors: "Oke et al.",
       year: 2024,
       journal: "Research Square",
       link: 'https://www.researchsquare.com/article/rs-5891044/v1',
@@ -290,6 +295,25 @@
     return ['All', ...new Set(allCategories)]
   })
   
+    // Newsletter subscription
+    const newsletterEmail = ref('');
+  
+  const subscribeToNewsletter = async () => {
+    // Simulate API call
+    // await new Promise(resolve => setTimeout(resolve, 800));
+    const payloadObj = {
+      email: newsletterEmail.value,
+      interests: 'Research Publications'
+    }
+    await subscribe(payloadObj)
+    
+    // Show success message
+    // alert(`Thank you for subscribing with ${newsletterEmail.value}! A confirmation has been sent to olgnovateam@gmail.com.`);
+    
+    // Reset form
+    newsletterEmail.value = '';
+  };
+
   // Active category filter
   const activeCategory = ref('All')
   

@@ -36,7 +36,7 @@
             <div class="p-8 md:p-12">
               <div class="prose prose-lg prose-olg max-w-none">
                 <p class="lead-paragraph">
-                  At OLGnova, protecting your personal and project information is a core part of our values and responsibility.
+                  At OLGNova, protecting your personal and project information is a core part of our values and responsibility.
                 </p>
                 
                 <div class="privacy-card animate-slide-up" style="animation-delay: 200ms;">
@@ -90,7 +90,7 @@
                     Compliance
                   </h2>
                   <p>
-                    OLGnova complies with global data protection laws including the General Data Protection Regulation and 
+                    OLGNova complies with global data protection laws including the General Data Protection Regulation and 
                     the California Consumer Privacy Act. We are committed to following industry best practices and to maintaining 
                     the confidentiality, security, and integrity of your information at every step.
                   </p>

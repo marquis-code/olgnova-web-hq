@@ -38,7 +38,7 @@
           <div class="mx-auto max-w-2xl text-center animate-fade-in">
             <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Guide</h1>
             <p class="mt-6 text-lg leading-8 text-olg-cream animate-slide-up">
-              How to Work With OLGnova
+              How to Work With OLGNova
             </p>
             <p class="mt-4 text-base text-olg-cream/80 animate-slide-up" style="animation-delay: 200ms;">
               A Step-by-Step Guide to Our Collaborative Process
@@ -52,7 +52,7 @@
         <div class="mx-auto max-w-3xl">
           <div class="prose prose-lg prose-olg max-w-none animate-fade-in">
             <p class="lead-paragraph">
-              Whether you're discovering OLGnova for the first time or have worked with us before, this guide outlines how we partner with organizations to create meaningful, measurable impact. From your first inquiry to post-project optimization, we ensure a transparent and results-driven experience.
+              Whether you're discovering OLGNova for the first time or have worked with us before, this guide outlines how we partner with organizations to create meaningful, measurable impact. From your first inquiry to post-project optimization, we ensure a transparent and results-driven experience.
             </p>
             
             <!-- Interactive Steps -->
@@ -263,7 +263,7 @@
             <div class="bg-olg-blue-50 rounded-xl p-8 shadow-lg">
               <h3 class="text-xl font-semibold text-olg-blue mb-4">Ready to get started?</h3>
               <p class="text-gray-700 mb-6">
-                Let's begin the conversation about how OLGnova can support your organization's goals.
+                Let's begin the conversation about how OLGNova can support your organization's goals.
               </p>
               <a 
                 href="mailto:olgnovateam@gmail.com" 

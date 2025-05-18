@@ -32,7 +32,7 @@
                 Empowering organizations in achieving their highest potential
               </h1>
               <p class="mt-8 text-pretty text-lg text-gray-600 sm:max-w-md sm:text-xl/8 lg:max-w-none">
-                At OLGnova, we specialize in driving positive change through expert research, strategic communication, and tailored solutions. We empower organizations to reach their full potential and create lasting, sustainable impact.
+                At OLGNova, we specialize in driving positive change through expert research, strategic communication, and tailored solutions. We empower organizations to reach their full potential and create lasting, sustainable impact.
               </p>
               <div class="mt-10 flex items-center gap-x-6">
                 <a href="#services" class="rounded-md bg-[#3A6E9F] px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-[#2A5D8E] transition-all duration-300 transform hover:scale-105">
@@ -51,27 +51,27 @@
                  :enter="{ opacity: 1, x: 0, transition: { delay: 600, duration: 800 } }">
               <div class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                 <div class="relative overflow-hidden rounded-xl group">
-                  <img src="@/assets/img/others4.jpg" alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-110">
+                  <img src="@/assets/img/team-members7.jpeg" alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-110">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
               </div>
               <div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                 <div class="relative overflow-hidden rounded-xl group">
-                  <img src="@/assets/img/founder4.jpg" alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-110">
+                  <img src="@/assets/img/others6.jpg" alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-110">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
                 <div class="relative overflow-hidden rounded-xl group">
-                  <img src="@/assets/img/founder5.jpg" alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-110">
+                  <img src="@/assets/img/founder6.png" alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-110">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
               </div>
               <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                 <div class="relative overflow-hidden rounded-xl group">
-                  <img src="@/assets/img/founder6.png" alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-110">
+                  <img src="@/assets/img/team-members5.jpg" alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-110">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
                 <div class="relative overflow-hidden rounded-xl group">
-                  <img src="@/assets/img/others6.jpg" alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-110">
+                  <img src="@/assets/img/team-members8.jpeg" alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg transition-transform duration-500 group-hover:scale-110">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
               </div>
@@ -214,7 +214,7 @@
                v-motion
                :initial="{ opacity: 0, y: 50 }"
                :enter="{ opacity: 1, y: 0, transition: { delay: 200, duration: 800 } }">
-              At OLGnova, we offer a comprehensive suite of services designed to provide organizations with data-driven insights, expert project management, and strategic guidance. Our goal is to help your organization create sustainable, impactful outcomes.
+              At OLGNova, we offer a comprehensive suite of services designed to provide organizations with data-driven insights, expert project management, and strategic guidance. Our goal is to help your organization create sustainable, impactful outcomes.
             </p>
           </div>
           
@@ -383,14 +383,14 @@
               </div>
               
               <blockquote class="text-xl/8 font-medium text-gray-900 italic">
-                "OLGnova's strategic insights and data-driven approach transformed our organization's outreach efforts. Their team delivered exceptional results that exceeded our expectations."
+                "OLGNova's insights transformed the way we engage with our stakeholders. Their support was instrumental in aligning our strategy with real community needs.."
               </blockquote>
               
               <div class="mt-8 flex items-center gap-x-4">
                 <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-12 w-12 rounded-full object-cover">
                 <div>
-                  <div class="font-semibold text-gray-900">Gabriel Oke</div>
-                  <div class="text-sm text-gray-600">CEO, TechInnovate</div>
+                  <div class="font-semibold text-gray-900">Peace Iraguha</div>
+                  <div class="text-sm text-gray-600">Chief Operations Officer, Lifesten Health Rwanda</div>
                 </div>
               </div>
             </div>
@@ -465,7 +465,7 @@
               <div class="grid grid-cols-2 gap-6">
                 <div class="space-y-6">
                   <div class="overflow-hidden rounded-2xl group">
-                    <img src="@/assets/img/others1.jpg" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="@/assets/img/team-members2.jpg" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
                   </div>
                   <div class="overflow-hidden rounded-2xl group">
                     <img src="@/assets/img/others2.jpg" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
@@ -473,10 +473,10 @@
                 </div>
                 <div class="mt-10 space-y-6">
                   <div class="overflow-hidden rounded-2xl group">
-                    <img src="@/assets/img/others3.png" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="@/assets/img/team-speaker.jpg" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
                   </div>
                   <div class="overflow-hidden rounded-2xl group">
-                    <img src="@/assets/img/others4.jpg" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="@/assets/img/team-members6.jpg" alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
                   </div>
                 </div>
               </div>
@@ -612,12 +612,12 @@
               <p class="mt-4 text-lg leading-8 text-white/80">
                 Let's work together to create sustainable impact and drive positive change for your organization.
               </p>
-              <div class="mt-6 flex max-w-md gap-x-4">
-                <input type="email" placeholder="Enter your email" class="min-w-0 flex-auto rounded-md border-0 bg-white/10 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 placeholder:text-white/60" />
-                <button type="submit" class="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-[#3A6E9F] shadow-sm hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all duration-300 hover:scale-105">
-                  Contact Us
+              <form @submit.prevent="subscribeToNewsletter" class="mt-6 flex max-w-md gap-x-4">
+                <input v-model="newsletterEmail" type="email" placeholder="Enter your email" class="min-w-0 flex-auto rounded-md border-0 bg-white/10 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 placeholder:text-white/60" />
+                <button :disabled="isLoading" type="submit" class="flex-none disabled:cursor-not-allowed disabled:opacity-25 rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-[#3A6E9F] shadow-sm hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all duration-300 hover:scale-105">
+                  {{ isLoading ? 'processing..' : 'Contact Us'}}
                 </button>
-              </div>
+              </form>
             </div>
             <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2"
                 v-motion
@@ -630,7 +630,7 @@
                   </svg>
                 </div>
                 <dt class="mt-4 font-semibold text-white">Email us</dt>
-                <dd class="mt-2 leading-7 text-white/80">info@olgnova.com</dd>
+                <dd class="mt-2 leading-7 text-white/80">info@OLGNova.com</dd>
               </div>
               <div class="flex flex-col items-start">
                 <div class="rounded-md bg-white/10 p-2 ring-1 ring-white/20">
@@ -657,6 +657,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useMotion } from '@vueuse/motion'
+import { useSubscribe } from "@/composables/modules/enquires/useSubscribe"
+const { subscribe, isLoading } = useSubscribe()
 
 const servicesList = ref([
   {
@@ -684,6 +686,23 @@ const servicesList = ref([
     "description": "We provide rigorous progress tracking and evaluation to keep projects on course. Our monitoring frameworks foster learning, accountability, and continuous improvement, ensuring long-term success and impact."
   }
 ])
+
+const newsletterEmail = ref('');
+
+const subscribeToNewsletter = async () => {
+    // Simulate API call
+    // await new Promise(resolve => setTimeout(resolve, 800));
+    const payloadObj = {
+      email: newsletterEmail.value
+    }
+    await subscribe(payloadObj)
+    
+    // Show success message
+    // alert(`Thank you for subscribing with ${newsletterEmail.value}! A confirmation has been sent to olgnovateam@gmail.com.`);
+    
+    // Reset form
+    newsletterEmail.value = '';
+  };
 </script>
 
 <style>

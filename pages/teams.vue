@@ -1,35 +1,27 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br pt-20 from-light-green-50 to-light-green-100 dark:from-blue-950 dark:to-blue-900 dark:text-white">
+  <div class="min-h-screen pt-20 bg-olg-blue">
     <!-- Header -->
     <header class="py-8 px-4 md:px-8 text-center">
-      <h1 class="text-3xl md:text-5xl font-bold mb-2 text-blue-700 dark:text-cream-300 animate-fade-in">
+      <h1 class="text-3xl md:text-5xl text-white font-bold mb-2 animate-fade-in">
         Meet Our Team
       </h1>
-      <p class="text-lg md:text-xl font-medium text-blue-600 dark:text-cream-400 mb-6 animate-slide-up">
-        400+ Studies Published
+      <p class="text-lg md:text-xl text-white font-medium mb-6 animate-slide-up">
+        80+ Studies Published
       </p>
-      <p class="max-w-3xl mx-auto text-gray-700 dark:text-gray-300 animate-fade-in">
-        At OLGnova, our leadership team brings a wealth of expertise in research, communication, and project management.
+      <p class="max-w-3xl mx-auto text-white animate-fade-in">
+        At OLGNova, our leadership team brings a wealth of expertise in research, communication, and project management.
       </p>
     </header>
 
     <!-- Team Navigation -->
-    <div class="sticky top-0 z-10 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md py-3 px-4 mb-8">
+    <div class="sticky top-0 z-10 bg-white/90 backdrop-blur-sm shadow-md py-3 px-4 mb-8">
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center justify-between mb-4">
-          <h2 class="text-lg font-semibold text-blue-700 dark:text-cream-400">Team Members</h2>
+          <h2 class="text-lg font-semibold text-blue-700">Team Members</h2>
           <div class="flex items-center gap-2">
             <button 
-              @click="toggleDarkMode" 
-              class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              <sun-icon v-if="isDarkMode" class="h-5 w-5" />
-              <moon-icon v-else class="h-5 w-5" />
-            </button>
-            <button 
               @click="isSearchOpen = !isSearchOpen" 
-              class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              class="p-2 rounded-full hover:bg-gray-200 transition-colors"
               aria-label="Search publications"
             >
               <search-icon class="h-5 w-5" />
@@ -44,7 +36,7 @@
               v-model="searchQuery" 
               type="text" 
               placeholder="Search publications or team members..." 
-              class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </div>
@@ -54,7 +46,7 @@
     <!-- Search Results -->
     <div v-if="searchQuery && sortedTeamMembers.length === 0" class="px-4 py-8 text-center animate-fade-in">
       <search-x-icon class="h-12 w-12 mx-auto text-gray-400 mb-4" />
-      <p class="text-gray-600 dark:text-gray-400">No results found for "{{ searchQuery }}"</p>
+      <p class="text-gray-600">No results found for "{{ searchQuery }}"</p>
     </div>
 
     <!-- Team Members List -->
@@ -63,18 +55,19 @@
         <div 
           v-for="member in sortedTeamMembers" 
           :key="member.id" 
-          class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-lg animate-fade-in"
+          class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-lg animate-fade-in"
         >
           <div class="p-6 md:p-8">
             <div class="md:flex md:items-start">
               <div class="md:flex-shrink-0 mb-4 md:mb-0 md:mr-6">
-                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full bg-light-green-100 dark:bg-blue-900 flex items-center justify-center text-blue-800 dark:text-cream-200 text-2xl font-bold border-4 border-blue-500 dark:border-cream-600">
-                  {{ member.initials }}
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full bg-light-green-100 flex items-center justify-center text-blue-800 text-2xl font-bold border-4 border-blue-500">
+                  <!-- {{ member.initials }} -->
+                    <img :src="member.image" class="rounded-full" />
                 </div>
               </div>
               <div class="flex-1">
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{{ member.name }}</h3>
-                <p class="text-blue-600 dark:text-cream-400 font-medium mb-3">{{ member.title }}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ member.name }}</h3>
+                <p class="text-blue-600 font-medium mb-3">{{ member.title }}</p>
                 
                 <div class="flex flex-wrap gap-2 mb-4">
                   <a 
@@ -91,15 +84,15 @@
                   </a>
                 </div>
                 
-                <div class="prose dark:prose-invert prose-blue max-w-none mb-6" v-html="member.bio"></div>
+                <div class="prose prose-blue max-w-none mb-6" v-html="member.bio"></div>
                 
                 <div class="mb-4" v-if="member.methods && member.methods.length > 0">
-                  <h4 class="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">Methods:</h4>
+                  <h4 class="text-lg font-semibold mb-2 text-gray-800">Methods:</h4>
                   <div class="flex flex-wrap gap-2">
                     <span
                       v-for="(method, index) in member.methods"
                       :key="index"
-                      class="inline-block px-3 py-1 rounded-full text-sm bg-light-green-100 dark:bg-blue-900 text-blue-800 dark:text-cream-200"
+                      class="inline-block px-3 py-1 rounded-full text-sm bg-light-green-100 text-blue-800"
                     >
                       {{ method }}
                     </span>
@@ -110,10 +103,10 @@
 
             <div class="mt-6" v-if="member.publications && member.publications.length > 0">
               <div class="flex items-center justify-between mb-4">
-                <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Research Publications</h4>
+                <h4 class="text-lg font-semibold text-gray-800">Research Publications</h4>
                 <button 
                   @click="togglePublications(member.id)"
-                  class="text-blue-600 dark:text-cream-400 hover:text-blue-800 dark:hover:text-cream-300 flex items-center text-sm font-medium"
+                  class="text-blue-600 hover:text-blue-800 flex items-center text-sm font-medium"
                 >
                   {{ expandedMembers.includes(member.id) ? 'Hide' : 'Show' }} {{ member.publications.length }} Publications
                   <chevron-down-icon 
@@ -130,18 +123,18 @@
                 <div 
                   v-for="(pub, index) in member.publications" 
                   :key="index"
-                  class="p-4 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-cream-700 transition-colors"
+                  class="p-4 rounded-lg bg-gray-50 border border-gray-200 hover:border-blue-300 transition-colors"
                 >
-                  <h5 class="font-semibold text-gray-900 dark:text-white mb-2">{{ pub.title }}</h5>
-                  <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">{{ pub.authors }}</p>
+                  <h5 class="font-semibold text-gray-900 mb-2">{{ pub.title }}</h5>
+                  <p class="text-sm text-gray-600 mb-2">{{ pub.authors }}</p>
                   <div class="flex items-center justify-between">
-                    <span class="text-xs text-gray-500 dark:text-gray-500">{{ pub.year }}</span>
+                    <span class="text-xs text-gray-500">{{ pub.year }}</span>
                     <a 
                       v-if="pub.doi" 
-                      :href="`https://doi.org/${pub.doi}`" 
+                      :href="pub.pubLink" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      class="text-xs text-blue-600 dark:text-cream-400 hover:underline flex items-center"
+                      class="text-xs text-blue-600 hover:underline flex items-center"
                     >
                       <external-link-icon class="h-3 w-3 mr-1" />
                       View Publication
@@ -169,6 +162,13 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
+import gabriel from "@/assets/img/gabriel.jpg"
+import olivier from "@/assets/img/olivier.jpg"
+import esther from "@/assets/img/esther.png"
+import precious from "@/assets/img/precious.png"
+import obadiah from "@/assets/img/obadiah.png"
+import sherifat from "@/assets/img/sherifat.png"
+import leonard from "@/assets/img/leonard.png"
 import { 
   Search as SearchIcon, 
   ChevronDown as ChevronDownIcon, 
@@ -178,9 +178,7 @@ import {
   BookOpen as GoogleScholarIcon,
   FileText as ResearchGateIcon,
   Hash as OrcidIcon,
-  SearchX as SearchXIcon,
-  Sun as SunIcon,
-  Moon as MoonIcon
+  SearchX as SearchXIcon
 } from 'lucide-vue-next'
 
 // Team members data
@@ -194,6 +192,8 @@ interface Publication {
   authors: string;
   year: string;
   doi?: string;
+  pubLink?: string;
+  doiLink?: string
   journal: string;
 }
 
@@ -201,6 +201,7 @@ interface TeamMember {
   id: string;
   name: string;
   initials: string;
+  image?: string;
   title: string;
   position: number; // Position field for sorting
   profiles: Profile[];
@@ -214,16 +215,17 @@ const teamMembers = ref<TeamMember[]>([
   {
   "id": "gabriel-oke",
   "name": "Gabriel Oke",
+  "image": gabriel,
   "initials": "GO",
-  "title": "Director and CEO OLGnova",
+  "title": "Director and CEO OLGNova",
   "position": 1,
   "profiles": [
-    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/gabriel-oke/" },
-    { "type": "ResearchGate", "url": "https://www.researchgate.net/profile/Gabriel-Oke" },
-    { "type": "Google Scholar", "url": "https://scholar.google.com/citations?user=gabriel-oke" },
-    { "type": "ORCID", "url": "https://orcid.org/gabriel-oke" }
+    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/gabrieloke/" },
+    { "type": "ResearchGate", "url": "https://www.researchgate.net/profile/Gabriel-Oke/research" },
+    { "type": "Google Scholar", "url": "https://scholar.google.com/citations?user=icNTymwAAAAJ&hl=en" },
+    { "type": "ORCID", "url": "https://orcid.org/0000-0002-0890-8895" }
   ],
-  "bio": "Gabriel Oke is a public health researcher who combines his passion for evidence-based research and global health equity to empower organizations in creating lasting, sustainable impact. He holds a Master of Science in Healthcare Management from the University of Global Health Equity in Rwanda and is currently pursuing an MBA at Chester Business School, UK.\n\nWith over six years of experience leading health initiatives, managing grant portfolios, and turning complex data into actionable strategies, Gabriel embodies OLGnova's mission to drive systemic change through innovation and collaboration.",
+  "bio": "Gabriel Oke is a public health researcher who combines his passion for evidence-based research and global health equity to empower organizations in creating lasting, sustainable impact. He holds a Master of Science in Healthcare Management from the University of Global Health Equity in Rwanda and is currently pursuing an MBA at Chester Business School, UK.\n\nWith over six years of experience leading health initiatives, managing grant portfolios, and turning complex data into actionable strategies, Gabriel embodies OLGNova's mission to drive systemic change through innovation and collaboration.",
   "methods": [
     "Systematic Reviews & Meta-Analyses",
     "Mixed-Methods Research",
@@ -236,133 +238,328 @@ const teamMembers = ref<TeamMember[]>([
       "authors": "Sibomana, O., Bugenimana, A., Oke, G., & Ndayambaje, E.",
       "year": "2024",
       "journal": "International Wound Journal, 21",
-      "doi": "10.1111/iwj.14929"
+      "doi": "10.1111/iwj.14929",
+      "pubLink": "https://onlinelibrary.wiley.com/doi/10.1111/iwj.14929",
+      "doiLink": "https://doi.org/10.1111/iwj.14929"
     },
     {
       "title": "Navigating the digital frontier during the COVID-19 pandemic and EVALI epidemic: The impact of social media on public health",
       "authors": "Ngoma, C., Matatiyo, A., Oke, G., Adebisi, Y., & Shomuyiwa, D.",
       "year": "2024",
       "journal": "Public Health Challenges, 3",
-      "doi": "10.1002/puh2.173"
+      "doi": "10.1002/puh2.173",
+            "pubLink": "https://onlinelibrary.wiley.com/doi/abs/10.1002/puh2.173",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.1002/puh2.173"
     },
     {
       "title": "Experience of people living with leprosy at leprosy settlements in Nigeria",
       "authors": "Oke, G., Nsofor, I., Abubakar, B., Lucero‐Prisno, D., Sunday, A., Dibia, E., Okpokpo, O., Obeta, O. K., Babatunde, A., Adeyemi, A., Adeoye, P., & Utaka, E.",
       "year": "2024",
       "journal": "Public Health Challenges, 3",
-      "doi": "10.1002/puh2.171"
+      "doi": "10.1002/puh2.171",
+            "pubLink": "https://www.authorea.com/users/774146/articles/868820-experience-of-people-living-with-leprosy-at-leprosy-settlements-in-nigeria",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.1002/puh2.171"
     },
     {
       "title": "Knowledge, perception, and willingness of emerging Public Health Advocates to effectively communicate about smoking cessation and Tobacco Harm Reduction in Africa",
       "authors": "Oke, G., Ademola, P., Utaka, E., John, E., Adam, M., Okereke, B., Onyia, I., & Adebisi, Y.",
       "year": "2024",
       "journal": "Discover Psychology, 4",
-      "doi": "10.1007/s44202-023-00102-5"
+      "doi": "10.1007/s44202-023-00102-5",
+            "pubLink": "https://link.springer.com/article/10.1007/s44202-023-00102-5",
+      "doiLink": "https://doi.org/10.1007/s44202-023-00102-5"
     },
     {
       "title": "Portrayal of electronic cigarettes in the news",
       "authors": "Ngoma, C., Alhaj, S., Imo, U., Oke, G., & Adebisi, Y.",
       "year": "2023",
       "journal": "Public Health Challenges, 2",
-      "doi": "10.1002/puh2.84"
+      "doi": "10.1002/puh2.84",
+            "pubLink": "https://onlinelibrary.wiley.com/doi/full/10.1002/puh2.84",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.1002/puh2.84"
     },
     {
       "title": "Knowledge, Attitude, And Practices (KAP) Of Malaria Prevention Amongst Medical Students of Obafemi Awolowo University, Ile-Ife, Osun State, Nigeria",
       "authors": "Matthew, T., Komolafe, D. O., Nasir, A., Eleje, C., Obaji, P., Ekpenyong, M., Igharo, A., & Oke, G.",
       "year": "2022",
       "journal": "Razi International Medical Journal, 2, 28-40",
-      "doi": "10.56101/rimj.v2i2.47"
+      "doi": "10.56101/rimj.v2i2.47",
+            "pubLink": "https://rimj.org/pubs/index.php/journal/article/view/47",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.56101/rimj.v2i2.47"
     },
     {
       "title": "Understanding female condom use, acceptance, accessibility, awareness and knowledge among female public health students in a Nigerian university: A cross-sectional study",
       "authors": "Oke, G., Adebisi, Y., Olarewaju, O., Agboola, P., Ilesanmi, E., Micheal, A., Ahmadi, A., & III, D.",
       "year": "2021",
       "journal": "Razi International Medical Journal, 1",
-      "doi": "10.56101/rimj.v1i2.16"
+      "doi": "10.56101/rimj.v1i2.16",
+            "pubLink": "https://rimj.org/pubs/index.php/journal/article/view/16",
+      "doiLink": "https://doi.org/10.56101/rimj.v1i2.16"
     },
     {
       "title": "Nigeria's Polio Elimination Playbook: Lessons To Strengthening Health Systems For Other Eradicable Diseases",
       "authors": "Effiong, F., Akanno, I., Anosike, U., Kayode, A., Okon, A., Dada, G., Oke, G., Nwobodo, M., & Uzairue, L.",
       "year": "2021",
       "journal": "Global Biosecurity, 3",
-      "doi": "10.31646/gbio.127"
+      "doi": "10.31646/gbio.127",
+            "pubLink": "https://jglobalbiosecurity.com/index.php/up-j-gb/article/view/127",
+      "doiLink": "https://doi.org/10.31646/gbio.127"
     },
     {
       "title": "Knowledge, Attitude, Practice and Predictors of Preventive Practices Toward COVID-19 among Healthcare Workers in Ogbomoso, Nigeria: A Cross-Sectional Study",
       "authors": "Adeoye, P., Oke, G., Fadele, K., & Awotunde, A.",
       "year": "2021",
       "journal": "Nigerian Journal of Medicine: Journal of the National Association of Resident Doctors of Nigeria, 30, 452",
-      "doi": "10.4103/NJM.NJM_"
+      "doi": "10.4103/NJM.NJM_",
+            "pubLink": "https://journals.lww.com/njom/fulltext/2021/30040/knowledge,_attitude,_practice_and_predictors_of.16.aspx",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.4103/NJM.NJM"
     },
     {
       "title": "COVID-19 calls for health systems strengthening in Africa: A case of Nigeria",
       "authors": "Oke, G., Adebisi, Y., & Nsofor, I.",
       "year": "2021",
       "journal": "International Journal of Health Planning and Management, 36, 1–9",
-      "doi": "10.1002/hpm.3296"
+      "doi": "10.1002/hpm.3296",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/34350637/",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.1002/hpm.3296"
     },
     {
       "title": "COVID-19 and Antimicrobial Resistance: A Review",
       "authors": "Adebisi, Y., Alaran, A., Okereke, M., Oke, G., Abimbola, A., Olaoye, O., Oladunjoye, I., Azeez, Y., Ukor, N., & III, D.",
       "year": "2021",
       "journal": "Infectious Diseases: Research and Treatment, 14, 1–9",
-      "doi": "10.1177/11786337211033870"
+      "doi": "10.1177/11786337211033870",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/34376994/",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.1177/11786337211033870"
     },
     {
       "title": "Transmission, entry and pattern of infection of severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2)",
       "authors": "Oke, G., Bassey, A., Fadele, K., Okereke, M., & Omoniyi, W.",
       "year": "2021",
       "journal": "Journal of Public Health and Diseases, 4, 330354–330355",
-      "doi": "10.31248/JPHD2020.081"
+      "doi": "10.31248/JPHD2020.081",
+          "pubLink": "https://www.researchgate.net/publication/351437205_Transmission_entry_and_pattern_of_infection_of_severe_acute_respiratory_syndrome_coronavirus_2_SARS-CoV-2#full-text",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.31248/JPHD2020.081"
     },
     {
       "title": "Impact of the COVID-19 Pandemic on Maternal and Child Health",
       "authors": "Oke, G., & Ihekweazu, V.",
       "year": "2020",
       "journal": "Modern Care Journal, 17, 110808",
-      "doi": "10.5812/modernc.110808"
+      "doi": "10.5812/modernc.110808",
+            "pubLink": "https://brieflands.com/articles/mcj-110808.html",
+      "doiLink": "https://doi.org/10.5812/modernc.110808"
     },
     {
       "title": "Exploring the Knowledge, Attitude and Practice Regarding Hepatitis B Infection among Ogbomosho LGA Dwellers A Cross-Sectional Study",
       "authors": "Olaniyan, A., Oke, G., Folaranmi, P., & Adetunji, B.",
       "year": "2020",
       "journal": "Journal of Hepatology Research, 5(1), 1039",
-      "doi": ""
+      "doi": "",
+            "pubLink": "http://researchgate.net/publication/347561451_Exploring_the_Knowledge_Attitude_and_Practice_Regarding_Hepatitis_B_Infection_among_Ogbomosho_LGA_Dwellers_A_Cross-Sectional_Study#full-text",
+      "doiLink": ""
     },
     {
       "title": "Prospects of BNAbs in Management of HIV/AIDS",
       "authors": "Oke, G., Fadele, K., Adebisi, Y., Okereke, M., & Bassey, A.",
       "year": "2020",
       "journal": "International Journal of Health Research",
-      "doi": "10.5812/ijhls.106098"
+      "doi": "10.5812/ijhls.106098",
+            "pubLink": "https://brieflands.com/articles/jhrt-106098",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.5812/ijhls.106098"
     },
     {
       "title": "COVID-19 in the Elderly and the Immunocompromised",
       "authors": "Oke, G., Fajobi, T., Akpan, S., & Adebisi, Y.",
       "year": "2020",
       "journal": "International Journal of Health Sciences",
-      "doi": "10.5812/ijhls.105955"
+      "doi": "10.5812/ijhls.105955",
+            "pubLink": "https://brieflands.com/articles/jhrt-105955",
+      "doiLink": "https://www.google.com/search?q=Oke,+Gabriel+%26+Fajobi,+Timothy+%26+Akpan,+Sarah+%26+Adebisi,+Yusuff+.+(2020).+COVID-19+in+the+Elderly+and+the+Immunocompromised.+International+journal+of+health+sciences.+10.5812/ijhls.105955."
     },
     {
       "title": "SARS-CoV-2 diagnostic testing in Africa: needs and challenges",
       "authors": "Adebisi, Y., Oke, G., Ademola, P., Dada, G., Ogunkola, I., & Lucero-Prisno, D.",
       "year": "2020",
       "journal": "Pan African Medical Journal, 35",
-      "doi": "10.11604/pamj.supp.2020.35.2.22703"
+      "doi": "10.11604/pamj.supp.2020.35.2.22703",
+            "pubLink": "https://www.researchgate.net/publication/341029877_SARS-CoV-2_diagnostic_testing_in_Africa_needs_and_challenges",
+      "doiLink": "https://www.google.com/search?q=https://www.google.com/search%3Fq%3Dhttps://doi.org/10.11604/pamj.supp.2020.35.2.22703"
     }
   ]
 },
 {
+    id: 'fadele-precious',
+    name: 'Fadele Precious Kehinde',
+    "image": precious,
+    initials: 'FP',
+    title: 'Head of Scientific Publications',
+    position: 2, // Manager level
+    profiles: [
+      { type: 'LinkedIn', url: 'https://www.linkedin.com/in/fadele-kehinde-precious-b6728017a/' },
+      { type: 'ResearchGate', url: 'https://www.researchgate.net/profile/Kehinde-Fadele' },
+      { type: 'Google Scholar', url: 'https://scholar.google.com/citations?user=F4_klb4AAAAJ&hl=en' },
+      { type: 'ORCID', url: 'https://orcid.org/0000-0002-0464-4167' }
+    ],
+    bio: `Kehinde Precious Fadele is an undergraduate medical student at the University of Nigeria, Enugu State, with a remarkable record of early-career research. Her scholarly pursuits are rooted in neurosurgery, neuro-oncology, neuro-infections, neurology, and global and public health. Notably, she has authored and co-authored over 30 peer-reviewed publications, encompassing original research, literature reviews, commentaries, and case reports, in reputable international journals.
+    <br><br>
+    Precious serves as the Editor-in-Chief for Wiley journal in the United States and contributes as a reviewer for the Annals of Medicine and Surgery Journal (UK), where she has evaluated over 81 manuscripts.`,
+    methods: [
+      'Case Reports & Series',
+      'Literature Reviews',
+      'Editorials/Perspectives',
+      'Survey Research'
+    ],
+    "publications": [
+    {
+      "title": "Revolutionizing aneurysm risk prediction: artificial intelligence's promise and challenges",
+      "authors": "Okon, I., Fadele, K., Chaurasia, B., Mbong, E., John, O. O., Kankam, S., Akpan, U., & III, D.",
+      "year": "2025",
+      "journal": "Annals of Medicine and Surgery, 87",
+      "doi": "10.1097/MS9.0000000000002917",
+            "pubLink": "https://doi.org/10.1097/MS9.0000000000002917",
+      "doiLink": "https://doi.org/10.1097/MS9.0000000000002917"
+    },
+    {
+      "title": "Neurotrauma in sports: concussion and chronic traumatic encephalopathy (CTE)",
+      "authors": "Fadele, K., Igwe, S., Egbo, K., Ernest, A., Somto, O., III, D., & Chaurasia, B.",
+      "year": "2025",
+      "journal": "Discover, 2",
+      "doi": "10.1007/s44337-025-00206-y",
+            "pubLink": "https://doi.org/10.1007/s44337-025-00206-y",
+      "doiLink": "https://doi.org/10.1007/s44337-025-00206-y"
+    },
+    {
+      "title": "December Editor's choice article \"The Evolving Role of Palliative Care in Older People with Glioblastoma\"",
+      "authors": "Okon, I., Osama, M., Akpan, A., Paleare, L. F., Ferreira, M. Y., Shafqat, M. D., Razouqi, Y., James, E., Omer, M., Ja'afar, I., Chaurasia, B., Iqbal, M., Balogun, S., Maidan, A., Jakhar, M., Fadele, K., Gbayisomore, T., & III, D.",
+      "year": "2024",
+      "journal": "World Neurosurgery",
+      "doi": "10.1016/S1878-8750(24)01857-6",
+            "pubLink": "https://doi.org/10.1016/S1878-8750(24)01857-6",
+      "doiLink": "https://doi.org/10.1016/S1878-8750(24)01857-6"
+    },
+    {
+      "title": "Addressing Mental Health in Africa: Integrating Mental Health First Aid Initiatives",
+      "authors": "Fadele, K., Ayuba, D., Igwe, S., Kolawole, E., Bianca, N., Owhor, G., Ogaya, J., & Lucero-Prisno, D. E.",
+      "year": "2024",
+      "journal": "",
+      "doi": "10.22541/au.173217242.26089066/v1",
+            "pubLink": "https://www.google.com/search?q=https://www.google.com/search%3Fq%3Dhttps://doi.org/10.22541/au.173217242.26089066/v1",
+      "doiLink": "https://www.google.com/search?q=https://www.google.com/search%3Fq%3Dhttps://doi.org/10.22541/au.173217242.26089066/v1"
+    },
+    {
+      "title": "The Current State of Spina Bifida in Low- and Middle-Income Countries: Where Does Africa Stand?",
+      "authors": "Okon, I., Temitope, A., Ogundele, I., Akpan, U., Mbong, E., Kasimieh, O., Chaurasia, B., James, E., Gbadebo, E., Fadele, K., Jader, A., John, O. O., Karmani, V., Erhayanmen, M., & III, D.",
+      "year": "2024",
+      "journal": "Neurochirurgie, 71",
+      "doi": "10.1016/j.neuchi.2024.101616",
+            "pubLink": "https://doi.org/10.1016/j.neuchi.2024.101616",
+      "doiLink": "https://doi.org/10.1016/j.neuchi.2024.101616"
+    },
+    {
+      "title": "Exploring Immunotherapeutic Strategies For Bacterial And Viral Diseases: Recent Advances, Challenges And Future Perspectives",
+      "authors": "Adedokun, A., Adigun, O., Muhammad Ibrahim, A., Idris, I., Ntasin, P. Y., Olowu, B., Ikele, C., & Fadele, K.",
+      "year": "2024",
+      "journal": "",
+      "doi": "10.20944/preprints202411.0105.v1",
+            "pubLink": "https://www.google.com/search?q=https://doi.org/10.20944/preprints202411.0105.v1",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.20944/preprints202411.0105.v1"
+    },
+    {
+      "title": "Neurosurgical interventions in epilepsy management",
+      "authors": "Fadele, K., Egbo, K., III, D., & Chaurasia, B.",
+      "year": "2024",
+      "journal": "Neurosurgical Review, 47",
+      "doi": "10.1007/s10143-024-03036-1",
+            "pubLink": "https://doi.org/10.1007/s10143-024-03036-1",
+      "doiLink": "https://doi.org/10.1007/s10143-024-03036-1"
+    },
+    {
+      "title": "The Evolving Role of Palliative Care in Older People with Glioblastoma",
+      "authors": "Okon, I., Osama, M., Akpan, A., Paleare, L. F., Ferreira, M. Y., Shafqat, M. D., Razouqi, Y., James, E., Omer, M., Ja'afar, I., Chaurasia, B., Iqbal, M., Balogun, S., Maidan, A., Jakhar, M., Fadele, K., Gbayisomore, T., & Lucero-Prisno, D.",
+      "year": "2024",
+      "journal": "World Neurosurgery",
+      "doi": "10.1016/j.wneu.2024.09.125",
+            "pubLink": "https://doi.org/10.1016/j.wneu.2024.09.125",
+      "doiLink": "https://doi.org/10.1016/j.wneu.2024.09.125"
+    },
+    {
+      "title": "Obstacle to Neurosurgery residency: Research perspective in early age of career",
+      "authors": "Fadele, K., & Chaurasia, B.",
+      "year": "2024",
+      "journal": "Neurosurgical Review, 47",
+      "doi": "10.1007/s10143-024-02895-y",
+            "pubLink": "https://doi.org/10.1007/s10143-024-02895-y",
+      "doiLink": "https://doi.org/10.1007/s10143-024-02895-y"
+    },
+    {
+      "title": "Reducing the burden of repeated ventriculo-peritoneal shunt surgery and infection in low and middle income country",
+      "authors": "Fadele, K., & Chaurasia, B.",
+      "year": "2024",
+      "journal": "Neurosurgical Review, 47",
+      "doi": "10.1007/s10143-024-02712-6",
+            "pubLink": "https://doi.org/10.1007/s10143-024-02712-6",
+      "doiLink": "https://doi.org/10.1007/s10143-024-02712-6"
+    },
+    {
+      "title": "Influence of Social Media in Attracting Future Neurosurgeons to Neurosurgery",
+      "authors": "Fadele, K., Marappan, K., & Chaurasia, B.",
+      "year": "2024",
+      "journal": "Annals of Medicine and Surgery, 86",
+      "doi": "10.1097/MS9.0000000000002405",
+            "pubLink": "https://doi.org/10.1097/MS9.0000000000002405",
+      "doiLink": "https://doi.org/10.1097/MS9.0000000000002405"
+    },
+    {
+      "title": "Strengthening neurosurgical training programs in Sub-saharan Africa: a medical student's perspective",
+      "authors": "Okon, I., Akilimali, A., Chisvo, N., Al-Lami, B., Sebopelo, L., Gbayisomore, T., Masunga, D., Edet, E., John, O. O., Ewelike, S., III, D., Elijah Temitope, A., Nkansah-Poku, K., Bello, M., Fadele, K., & Erhayanmen, M.",
+      "year": "2024",
+      "journal": "Neurosurgical Review, 47",
+      "doi": "10.1007/s10143-024-02469-y",
+            "pubLink": "https://doi.org/10.1007/s10143-024-02469-y",
+      "doiLink": "https://doi.org/10.1007/s10143-024-02469-y"
+    },
+    {
+      "title": "Understanding the root of healing and beyond: Exploring the way forward for Alternative Medicine in Nigeria",
+      "authors": "Ayuba, D., Fadele, K., Ogaya, J., Kolawole, E., Sharma, S., Lucero-Prisno, E., & Iii,.",
+      "year": "2024",
+      "journal": "Bhutan Sorig Journal, 1",
+      "doi": "10.47811/bsj.0004050304",
+            "pubLink": "https://doi.org/10.47811/bsj.0004050304",
+      "doiLink": "https://doi.org/10.47811/bsj.0004050304"
+    },
+    {
+      "title": "Global Neurosurgical Challenges: A Focus on Central Asia",
+      "authors": "Okon, I., Akpan, U., III, D., Bankole, N., Shafqat, M. D., Rehman, I., Shafqat, M., Gbayisomore, T., Atallah, O., Maidan, A., Fadele, K., Musa, M., Ibrahim, M., Omer, M., Dzhusupov, K., Ermakhanfm, Z., Tygotov, T., Otaki, A., Toguzbaeva, K., & Chaurasia, B.",
+      "year": "2024",
+      "journal": "World Neurosurgery",
+      "doi": "10.1016/j.wneu.2024.05.067",
+            "pubLink": "https://doi.org/10.1016/j.wneu.2024.05.067",
+      "doiLink": "https://doi.org/10.1016/j.wneu.2024.05.067"
+    },
+    {
+      "title": "Mental health challenges in Nigeria: Bridging the gap between demand and resources",
+      "authors": "Fadele, K., Igwe, S., Toluwalogo, N.-O., Udokang, E., Ogaya, J., & Lucero-Prisno, D.",
+      "year": "2024",
+      "journal": "Cambridge Prisms: Global Mental Health, 11",
+      "doi": "10.1017/gmh.2024.19",
+            "pubLink": "https://doi.org/10.1017/gmh.2024.19",
+      "doiLink": "https://doi.org/10.1017/gmh.2024.19"
+    }
+  ]
+  },
+{
   "id": "uzairue-leonard",
   "name": "Uzairue Leonard Ighodalo",
+  "image": leonard,
   "initials": "UL",
   "title": "Director of Operations",
-  "position": 2,
+  "position": 3,
   "profiles": [
-    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/uzairue-leonard-ighodalo/" },
-    { "type": "ResearchGate", "url": "https://www.researchgate.net/profile/Uzairue-Leonard-Ighodalo" },
-    { "type": "Google Scholar", "url": "https://scholar.google.com/citations?user=uzairue-leonard-ighodalo" },
-    { "type": "ORCID", "url": "https://orcid.org/uzairue-leonard-ighodalo" }
+    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/uzairueleonard/" },
+    { "type": "ResearchGate", "url": "https://www.researchgate.net/profile/Leonard-Uzairue" },
+    { "type": "Google Scholar", "url": "https://scholar.google.com/citations?user=HmF8kB0AAAAJ&hl=en" },
+    { "type": "ORCID", "url": "https://orcid.org/0000-0003-2547-175X" }
   ],
   "bio": "Uzairue Leonard Ighodalo is a distinguished academic and researcher specializing in medical microbiology, antimicrobial resistance (AMR), and infectious disease epidemiology. With a PhD in Medical Microbiology and Public Health at the Federal University of Agriculture, Abeokuta, Leonard is a recipient of the prestigious NIHR & RSTMH grant for his groundbreaking research on COVID-19's impact on AMR in Nigeria.\n<br><br>\nLeonard's extensive research portfolio includes publications on Salmonella transmission dynamics, colistin resistance in Klebsiella pneumoniae, and surveillance systems for AMR in Africa.",
   "methods": [
@@ -377,323 +574,277 @@ const teamMembers = ref<TeamMember[]>([
       "authors": "Rabaan, A., Uzairue, L., Alfaraj, A., Halwani, M., Muzaheed, A., Alawfi, A., Alshengeti, A., Alkaabi, N., Alawad, E., Alhajri, M., Alwarthan, S., Alshukairi, A., Almuthree, S., Alsubki, R., Alshehri, N., Alissa, M., Albayat, H., Zaidan, T., Alagoul, H., & Alestad, J.",
       "year": "2023",
       "journal": "Pathogens, 12",
-      "doi": "10.3390/pathogens12091157"
+      "doi": "10.3390/pathogens12091157",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/37764965/",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.3390/pathogens12091157"
     },
     {
       "title": "Detection of Multidrug resistant cariogenic bacteria among Diabetic Patients attending a Tertiary Hospital in Ado Ekiti, South-Western, Nigeria",
       "authors": "Adewumi, F., Adegoke, A., Ojerinde, O., Uzairue, L., Okiki, A., & Ibeh, I.",
       "year": "2023",
       "journal": "ABUAD International Journal of Natural and Applied Sciences, 3, 61–69",
-      "doi": "10.53982/aijnas.2023.0302.09-j"
+      "doi": "10.53982/aijnas.2023.0302.09-j",
+            "pubLink": "https://journals.abuad.edu.ng/index.php/aijnas/article/view/238",
+      "doiLink": "https://doi.org/10.53982/aijnas.2023.0302.09-j"
     },
     {
       "title": "Antimicrobial resistance and virulence genes of invasive Salmonella enterica from children with bacteremia in north-central Nigeria",
       "authors": "Uzairue, L., Shittu, O., Ojo, O., Obuotor, T., Olanipekun, G., Ajose, T., Arogbonlo, R., Medugu, N., Ebruke, B., & Obaro, S.",
       "year": "2023",
       "journal": "SAGE Open Medicine, 11",
-      "doi": "10.1177/20503121231175322"
+      "doi": "10.1177/20503121231175322",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/37223673/",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.1177/20503121231175322"
     },
     {
       "title": "HIV Patients' Satisfaction with Pharmaceutical Care at a Nigerian Tertiary Healthcare Facility During the Covid-19 Pandemic",
       "authors": "Dalhatu Muhammad, A., Emmanuel, A., Ugwuonah, J., Okon, P., Aliyu, S., Uzairue, L., & Lucero-Prisno, D.",
       "year": "2023",
       "journal": "Journal of the International Association of Providers of AIDS Care, 22",
-      "doi": "10.1177/23259582231159093"
+      "doi": "10.1177/23259582231159093",
+            "pubLink": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9989440/",
+      "doiLink": "https://www.google.com/search?q=https://www.google.com/search%3Fq%3Dhttps://doi.org/10.1177/23259582231159093"
     },
     {
       "title": "The potential impact of the COVID-19 pandemic on global antimicrobial and biocide resistance: an AMR Insights global perspective",
       "authors": "Hays, J., Kemp, A., Okechukwu, R., Murugaiyan, J., Ekwanzala, M., Alvarez, M., Paul Satyaseela, M., Iwu, C., Ballesté-Delpierre, C., Septimus, E., Mugisha, L., Fadare, J., Chaudhuri, S., Chibabhai, V., Rohini, J., Wadanamby, W., Daoud, Z., Xiao, Y., & Uzairue, L.",
       "year": "2023",
       "journal": "",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.researchgate.net/publication/368463990_The_potential_impact_of_the_COVID-19_pandemic_on_global_antimicrobial_and_biocide_resistance_an_AMR_Insights_global_perspective#full-text",
+      "doiLink": ""
     },
     {
       "title": "Salmonella enterica Transmission and Antimicrobial Resistance Dynamics across One-Health Sector",
       "authors": "Uzairue, L., & Shittu, O.",
       "year": "2023",
       "journal": "",
-      "doi": "10.5772/intechopen.109229"
+      "doi": "10.5772/intechopen.109229",
+            "pubLink": "https://www.intechopen.com/chapters/85722",
+      "doiLink": "https://doi.org/10.5772/intechopen.109229"
     },
     {
       "title": "COVID-19 Laboratory Testing Capacity in 13 African Countries",
       "authors": "Adebisi, Y., Rabe, A., Alaran, A., Babatunde, A., Uzairue, L., & Lucero, E.",
       "year": "2023",
       "journal": "5",
-      "doi": "10.23880/EIJ-16000214"
+      "doi": "10.23880/EIJ-16000214",
+            "pubLink": "https://medwinpublishers.com/EIJ/covid-19-laboratory-testing-capacity-in-13-african-countries.pdf",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.23880/EIJ-16000214"
     },
     {
       "title": "Systematic review of surveillance systems for AMR in Africa",
       "authors": "Okolie, O., Igwe, U., Ismail, S., Uzairue, L., & Adukwu, E.",
       "year": "2022",
       "journal": "Journal of Antimicrobial Chemotherapy, 78",
-      "doi": "10.1093/jac/dkac342"
+      "doi": "10.1093/jac/dkac342",
+            "pubLink": "https://academic.oup.com/jac/article/78/1/31/6760343",
+      "doiLink": "https://doi.org/10.1093/jac/dkac342"
     },
     {
       "title": "Global Prevalence of Colistin Resistance in Klebsiella pneumoniae from Bloodstream Infection: A Systematic Review and Meta-Analysis",
       "authors": "Uzairue, L., Rabaan, A., Adewumi, F., Okolie, O., Folorunso, J., Bakhrebah, M., Garout, M., Alfouzan, W., Halwani, M., Alamri, A., Halawani, S., Alshahrani, F., Hasan, A., Al Mutair, A., Alhumaid, S., Etafo, J., Utip, I., Odoh, I., & Uwaezuoke, N.",
       "year": "2022",
       "journal": "Pathogens, 11",
-      "doi": "10.3390/pathogens11101092"
+      "doi": "10.3390/pathogens11101092",
+            "pubLink": "https://www.mdpi.com/2076-0817/11/10/1092",
+      "doiLink": "https://www.google.com/search?q=https://www.google.com/search%3Fq%3Dhttps://doi.org/10.3390/pathogens11101092"
     },
     {
       "title": "Sex inequality in early initiation of breastfeeding in 24 sub-Saharan African countries: A multi-country analysis of Demographic and Health Surveys",
       "authors": "Bolarinwa, O., Ahinkorah, B., Arthur-Holmes, F., Aboagye, R., Ameyaw, E., Budu, E., Seidu, A.-A., Uzairue, L., & Yaya, S.",
       "year": "2022",
       "journal": "PLOS ONE, 17, 1–14",
-      "doi": "10.1371/journal.pone.0267703"
+      "doi": "10.1371/journal.pone.0267703",
+            "pubLink": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0267703",
+      "doiLink": "https://doi.org/10.1371/journal.pone.0267703"
     },
     {
       "title": "Antimicrobial resistance and virulence genes in Salmonella enterica serovars isolated from droppings of layer chicken in two farms in Nigeria",
       "authors": "Shittu, O., Uzairue, L., Ojo, O., Obuotor, T., Folorunso, J., Raheem‐Ademola, R., Olanipekun, G., Ajose, T., Medugu, N., Ebruke, B., & Obaro, S.",
       "year": "2022",
       "journal": "Journal of Applied Microbiology, 132",
-      "doi": "10.1111/jam.15477"
+      "doi": "10.1111/jam.15477",
+            "pubLink": "https://ami-journals.onlinelibrary.wiley.com/doi/full/10.1111/jam.15477",
+      "doiLink": "https://doi.org/10.1111/jam.15477"
     },
     {
       "title": "Nigeria's Polio Elimination Playbook: Lessons To Strengthening Health Systems For Other Eradicable Diseases",
       "authors": "Effiong, F., Akanno, I., Anosike, U., Kayode, A., Okon, A., Dada, G., Oke, G., Nwobodo, M., & Uzairue, L.",
       "year": "2021",
       "journal": "Global Biosecurity, 3",
-      "doi": "10.31646/gbio.127"
+      "doi": "10.31646/gbio.127",
+            "pubLink": "https://jglobalbiosecurity.com/index.php/up-j-gb/article/view/127",
+      "doiLink": "https://doi.org/10.31646/gbio.127"
     },
     {
       "title": "Prevalence, risk factors and impact of cellular immunity on intestinal parasitosis among people living with HIV at Auchi, Edo State, Nigeria",
       "authors": "Uzairue, L., Ogbena, M., Ikede, R., Aguda, O., Adebisi, Y., & Lucero-Prisno, D.",
       "year": "2021",
       "journal": "International Journal of STD & AIDS, 32",
-      "doi": "10.1177/09564624211020984"
+      "doi": "10.1177/09564624211020984",
+            "pubLink": "https://journals.sagepub.com/doi/abs/10.1177/09564624211020984",
+      "doiLink": "https://www.google.com/search?q=https://www.google.com/search%3Fq%3Dhttps://doi.org/10.1177/09564624211020984"
     },
     {
       "title": "The interplay between environmental factors, Vector Competence and vaccine immunodynamics as possible explanation of the 2019 Yellow fever Re-emergence in Nigeria",
       "authors": "Abdullahi, I., Abubakar, A., Emeribe, A., Umar, K., Adekola, H., Uzairue, L., Ghmaba, P., & Okwume, C.",
       "year": "2021",
       "journal": "New Microbes and New Infections, 41",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.sciencedirect.com/science/article/pii/S2052297521000226",
+      "doiLink": ""
     },
     {
       "title": "Humoral immunological kinetics of severe acute respiratory syndrome coronavirus 2 infection and diagnostic performance of serological assays for coronavirus disease 2019: an analysis of global reports",
       "authors": "Emeribe, A., Abdullahi, I. N., Shuwa, H., Uzairue, L., Musa, S., Abubakar, A., Adekola, H., Bello, Z. M., Aliyu, D., Haruna, S., Usman, Y., Muhammad, Y., Gwarzo, A., Nwofe, J., Chiwar, H., Okwume, C., Sunday, A., Fasogbon, S., Olayemi, L., & Rogo, L.",
       "year": "2021",
       "journal": "International Health, 13, 1–35",
-      "doi": "10.1093/inthealth/ihab005"
+      "doi": "10.1093/inthealth/ihab005",
+            "pubLink": "https://academic.oup.com/inthealth/article/14/1/18/6147255",
+      "doiLink": "https://doi.org/10.1093/inthealth/ihab005"
     },
     {
       "title": "Sero-survey of measles virus antibodies among symptomatic children attending Abuja Teaching Hospital, Nigeria",
       "authors": "Adekola, H., Abdullahi, I. N., Emeribe, A., Nafiu, F., Uzairue, L., Billyrose, O., & Shuwa, H.",
       "year": "2021",
       "journal": "16",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/33643771/",
+      "doiLink": ""
     },
     {
       "title": "Clinical characteristics of 4499 COVID-19 patients in Africa: A meta-analysis",
       "authors": "Olumade, T., & Uzairue, L.",
       "year": "2021",
       "journal": "Journal of Medical Virology, 93",
-      "doi": "10.1002/jmv.26848"
+      "doi": "10.1002/jmv.26848",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/33543800/",
+      "doiLink": "https://doi.org/10.1002/jmv.26848"
     },
     {
       "title": "Ensuring Access to COVID-19 Vaccine among the Marginalized Populations in Africa",
       "authors": "Lucero-Prisno, D., Adebisi, Y., Uzairue, L., Yinka, A., Alaran, A., Izukanne, E., Jamgbadi, O., & Bolarinwa, O.",
       "year": "2021",
       "journal": "Public Health, 197",
-      "doi": "10.1016/j.puhe.2021.01.008"
+      "doi": "10.1016/j.puhe.2021.01.008",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/33632529/", 
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.1016/j.puhe.2021.01.008"
     },
     {
       "title": "Clinical characteristics of 4490 COVID-19 patients in Africa: A meta-analysis",
       "authors": "Olumade, T., & Uzairue, L.",
       "year": "2020",
       "journal": "",
-      "doi": "10.1101/2020.10.20.20215905"
+      "doi": "10.1101/2020.10.20.20215905",
+            "pubLink": "https://www.medrxiv.org/content/10.1101/2020.10.20.20215905v1",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.1101/2020.10.20.20215905"
     },
     {
       "title": "The Interplay Between Epigenetics, Vector Competence and Vaccine Immunodynamics as a Possible Explanation for Recent Yellow Fever Resurgence in Nigeria Summary BACKGROUND",
       "authors": "Umar, K., Abubakar, A., Nasir, I., Emeribe, A., Babayo, A., Adekola, H., Mukhtar Danmusa, U., & Uzairue, L.",
       "year": "2020",
       "journal": "African Journal of Health Sciences, 32, 38-52",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.ajol.info/index.php/ajhs/article/view/199462",
+      "doiLink": ""
     },
     {
       "title": "The Interplay Between Epigenetics, Vector Competence, and Vaccine Immunodynamics as a Possible Explanation for Recent Yellow Fever Resurgence in Nigeria",
       "authors": "Umar, K., Abubakar, A., Abdullahi, I. N., Emeribe, A., Babayo, A., Adekola, H., Mukhtar Danmusa, U., & Uzairue, L.",
       "year": "2020",
       "journal": "African Journal of Health Sciences, 32, 38–52",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.ajol.info/index.php/ajhs/article/view/199462",
+      "doiLink": ""
     },
     {
       "title": "Transcriptomic dysregulations associated with SARS-CoV-2 infection in human nasopharyngeal and peripheral blood mononuclear cells",
       "authors": "Vilas Boas de Melo, C., Bhuiyan, M., Gatua, W., Kanyerezi, S., Uzairue, L., Abechi, P., Kumar, K., Rahmat, J., Giwa, A., Mwandira, G., Abisogun, M., George, E., Oluwapelumi, J., Ibironke, A., Olayemi, D., Rotimi, A., Aly, D., Abo-Elenein, M., Abubakar, R., & Carl, S.",
       "year": "2020",
       "journal": "",
-      "doi": "10.1101/2020.09.09.289850"
+      "doi": "10.1101/2020.09.09.289850",
+            "pubLink": "https://www.biorxiv.org/content/10.1101/2020.09.09.289850v1.full-text",
+      "doiLink": "https://www.google.com/search?q=https://www.google.com/search%3Fq%3Dhttps://doi.org/10.1101/2020.09.09.289850"
     },
     {
       "title": "Tracking the epidemiology of epidemic meningitis in Nigeria, initial findings in the 2018 epidemic",
       "authors": "Medugu, N., Olanipekun, G., Okorie, C., Uzairue, L., Maishanu, S., Dogondaaj, A., Haliru Tambuwal, S., Ajose, T., Idiong, D., Ebruke, B., Haidar, N., Ojeifor, R., & Obaro, S.",
       "year": "2018",
       "journal": "",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.researchgate.net/publication/335791215_Tracking_the_epidemiology_of_epidemic_meningitis_in_Nigeria_initial_findings_in_the_2018_epidemic",
+      "doiLink": ""
     },
     {
       "title": "IMPACT OF GLOBALIZATION ON INFECTIOUS DISEASES AMONG FEMALES IN NIGERIA (Presented at WORDOC (Institute of Africa Studies)",
       "authors": "Uzairue, L., & Adewale, B.",
       "year": "2018",
       "journal": "",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.researchgate.net/publication/323855064_IMPACT_OF_GLOBALIZATION_ON_INFECTIOUS_DISEASES_AMONG_FEMALES_IN_NIGERIA_Presented_at_WORDOC_Institute_of_Africa_Studies",
+      "doiLink": ""
     },
     {
       "title": "Prophylactic Activity and Haematological Changes in Swiss Albino Rats Treated with Diodia scandens and Phyllanthus amarus Crude Extracts",
       "authors": "Ojo, K. S., Adeoye, A., & Uzairue, L.",
       "year": "2018",
       "journal": "",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.researchgate.net/publication/323855318_Prophylactic_Activity_and_Haematological_Changes_in_Swiss_Albino_Rats_Treated_with_Diodia_scandens_and_Phyllanthus_amarus_Crude_Extracts",
+      "doiLink": ""
     },
     {
       "title": "Emerging Antibiotic Resistant Nosocomial Infection – Coagulase Negative Staphylococci Isolated From Patients in General Hospitals Within Suburban Areas of Delta State, Nigeria",
       "authors": "Ojo, K. S., Esumeh, F. I., Osanyinlusi, S. A., Ojerinde, O., & Uzairue, L.",
       "year": "2017",
       "journal": "Nigerian Journal of Microbiology, 37, 3676-3688",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.researchgate.net/publication/319402391_Emerging_Antibiotic_Resistant_Nosocomial_Infection_-_Coagulase_Negative_Staphylococci_Isolated_From_Patients_in_General_Hospitals_Within_Suburban_Areas_of_Delta_State_Nigeria",
+      "doiLink": ""
     },
     {
       "title": "Determination of Human Parasitic Infestation on Fruits and Vegetables Sold in Ekpoma Markets, Edo State, Nigeria",
       "authors": "Okpala, H. O., Uzairue, L., Akhile, A., Aghatise, K., & Digban, K.",
       "year": "2016",
       "journal": "Asian Journal of Medical Sciences, 8, 10-14",
-      "doi": "10.19026/ajms.8.2987"
+      "doi": "10.19026/ajms.8.2987",
+            "pubLink": "https://www.researchgate.net/publication/309399561_Determination_of_Human_Parasitic_Infestation_on_Fruits_and_Vegetables_Sold_in_Ekpoma_Markets_Edo_State_Nigeria",
+      "doiLink": "https://doi.org/10.19026/ajms.8.2987"
     },
     {
       "title": "Comparative Study of Research Publication among Professionals in Nigeria: A Study of Engineers and Medical Laboratory Scientists in Edo Central, Edo State, Nigeria",
       "authors": "Uzairue, L.",
       "year": "2014",
       "journal": "Early Years: An International Journal of Research and Development, 3, 247-250",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.researchgate.net/publication/318404745_Comparative_Study_of_Research_Publication_among_Professionals_in_Nigeria_A_Study_of_Engineers_and_Medical_Laboratory_Scientists_in_Edo_Central_Edo_State_Nigeria",
+      "doiLink": ""
     },
     {
       "title": "THE RELEVANCE OF INFORMATION AND COMMUNICATION TECHNOLOGIES IN LIBRARIES SERVICES AND LIBRARIANSHIP PROFESSION IN THE 21TH CENTURY",
       "authors": "Osawele, R.E., & Uzairue, L.I.",
       "year": "2013",
       "journal": "International Journal of Basic, Applied and Innovative Research, 2, 10-14",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.semanticscholar.org/paper/The-Relevance-of-Information-and-Communication-in-Osawele-Uzairue/8c92d7613750e787135a3e1aebed60111719f32c",
+      "doiLink": ""
     },
     {
       "title": "GASTRODISCOIDES HOMINIS INFESTATION ON VEGETABLES (CABBAGES) SOLD IN EKPOMA MARKETS, EDO STATE, SOUTHERN NIGERIA- A CASE REPORT",
       "authors": "Uzairue, Leonard",
       "year": "2013",
       "journal": "International Journal of Basic, Applied and Innovative Research, 2, 37-39",
-      "doi": ""
+      "doi": "",
+            "pubLink": "https://www.researchgate.net/publication/320064592_GASTRODISCOIDES_HOMINIS_INFESTATION_ON_VEGETABLES_CABBAGES_SOLD_IN_EKPOMA_MARKETS_EDO_STATE_SOUTHERN_NIGERIA-_A_CASE_REPORT",
+      "doiLink": ""
     }
   ]
 },
-  // {
-  //   id: 'uzairue-leonard',
-  //   name: 'Uzairue Leonard Ighodalo',
-  //   initials: 'UL',
-  //   title: 'Director of Operations',
-  //   position: 2, // Manager level
-  //   profiles: [
-  //     { type: 'LinkedIn', url: 'https://www.linkedin.com/in/uzairue-leonard-ighodalo/' },
-  //     { type: 'ResearchGate', url: 'https://www.researchgate.net/profile/Uzairue-Leonard-Ighodalo' },
-  //     { type: 'Google Scholar', url: 'https://scholar.google.com/citations?user=uzairue-leonard-ighodalo' },
-  //     { type: 'ORCID', url: 'https://orcid.org/uzairue-leonard-ighodalo' }
-  //   ],
-  //   bio: `Uzairue Leonard Ighodalo is a distinguished academic and researcher specializing in medical microbiology, antimicrobial resistance (AMR), and infectious disease epidemiology. With a PhD in Medical Microbiology and Public Health at the Federal University of Agriculture, Abeokuta, Leonard is a recipient of the prestigious NIHR & RSTMH grant for his groundbreaking research on COVID-19's impact on AMR in Nigeria.
-  //   <br><br>
-  //   Leonard's extensive research portfolio includes publications on Salmonella transmission dynamics, colistin resistance in Klebsiella pneumoniae, and surveillance systems for AMR in Africa.`,
-  //   methods: [
-  //     'Molecular Studies',
-  //     'Systematic Reviews/Meta-Analyses',
-  //     'Retrospective Cohort Studies',
-  //     'Surveillance Data Analysis'
-  //   ],
-  //   publications: [
-  //     {
-  //       title: 'Systematic Review Seroprevalence, Risk Factors and Maternal-Fetal Outcomes of Toxoplasma gondii in Pregnant Women from WHO Eastern Mediterranean Region: Systematic Review and Meta-Analysis',
-  //       authors: 'Rabaan, A., Uzairue, L., Alfaraj, A., Halwani, M., Muzaheed, A., Alawfi, A., et al.',
-  //       year: '2023',
-  //       doi: '10.3390/pathogens12091157'
-  //     },
-  //     {
-  //       title: 'Detection of Multidrug resistant cariogenic bacteria among Diabetic Patients attending a Tertiary Hospital in Ado Ekiti, South-Western, Nigeria',
-  //       authors: 'Adewumi, F., Adegoke, A., Ojerinde, O., Uzairue, L., Okiki, A., & Ibeh, I.',
-  //       year: '2023',
-  //       doi: '10.53982/aijnas.2023.0302.09-j'
-  //     },
-  //     {
-  //       title: 'Antimicrobial resistance and virulence genes of invasive Salmonella enterica from children with bacteremia in north-central Nigeria',
-  //       authors: 'Uzairue, L., Shittu, O., Ojo, O., Obuotor, T., Olanipekun, G., Ajose, T., et al.',
-  //       year: '2023',
-  //       doi: '10.1177/20503121231175322'
-  //     },
-  //     {
-  //       title: 'HIV Patients\' Satisfaction with Pharmaceutical Care at a Nigerian Tertiary Healthcare Facility During the Covid-19 Pandemic',
-  //       authors: 'Dalhatu Muhammad, A., Emmanuel, A., Ugwuonah, J., Okon, P., Aliyu, S., Uzairue, L., & Lucero-Prisno, D.',
-  //       year: '2023',
-  //       doi: '10.1177/23259582231159093'
-  //     },
-  //     {
-  //       title: 'The potential impact of the COVID-19 pandemic on global antimicrobial and biocide resistance: an AMR Insights global perspective',
-  //       authors: 'Hays, J., Kemp, A., Okechukwu, R., Murugaiyan, J., Ekwanzala, M., Alvarez, M., et al.',
-  //       year: '2023'
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 'goodness-odey',
-  //   name: 'Goodness Odey',
-  //   initials: 'GO',
-  //   title: 'Director of Research and Director (Global Health Portfolio)',
-  //   position: 3, // Director level
-  //   profiles: [
-  //     { type: 'LinkedIn', url: 'https://www.linkedin.com/in/goodness-ogeyi-odey/' },
-  //     { type: 'ResearchGate', url: 'https://www.researchgate.net/profile/Goodness-Ogeyi-Odey' },
-  //     { type: 'Google Scholar', url: 'https://scholar.google.com/citations?user=goodness-ogeyi-odey' },
-  //     { type: 'ORCID', url: 'https://orcid.org/goodness-ogeyi-odey' }
-  //   ],
-  //   bio: `Goodness Ogeyi Odey is a Global Public Health Practitioner committed to strengthening health systems and promoting equitable engagement to achieve sustainable development and universal health coverage, particularly in resource-constrained settings. She holds an MSc in Health Policy, Planning, and Financing from the London School of Hygiene and Tropical Medicine (LSHTM) and the London School of Economics and Political Science (LSE).
-  //   <br><br>
-  //   At the age of 24, Goodness was honored with the prestigious 2022 Princesa Diana Award, the highest accolade for young people's social action, recognizing her significant contributions to health equity in Africa.`,
-  //   methods: [
-  //     'Cross-Country Comparative Studies',
-  //     'Qualitative Case Studies',
-  //     'Literature Synthesis',
-  //     'Survey Research'
-  //   ],
-  //   publications: [
-  //     {
-  //       title: 'Top 10 Public Health Challenges for 2024: Charting a New Direction for Global Health Security',
-  //       authors: 'III, D., Shomuyiwa, D., Kouwenhoven, M. B. N., Dorji, T., Adebisi, Y., Odey, G., et al.',
-  //       year: '2024',
-  //       doi: '10.1002/puh2.70022'
-  //     },
-  //     {
-  //       title: 'Public Health Word of the Year 2023 — Conflict',
-  //       authors: 'Lucero-Prisno, D., Ogaya, J., Shomuyiwa, D., Adebisi, Y., Kouwenhoven, M. B. N., Ogunkola, I., Odey, G., et al.',
-  //       year: '2024',
-  //       doi: '10.1002/puh2.220'
-  //     },
-  //     {
-  //       title: 'Transforming adolescent menstrual health through policy: the role of value added tax exemptions in improving access to sanitary products',
-  //       authors: 'Shomuyiwa, D., Odey, G., Ndep, A., Ekerin, O., Amesho, J., Luvindao, E., Manirambona, E., & III, D.',
-  //       year: '2024',
-  //       doi: '10.1186/s41256-024-00358-x'
-  //     },
-  //     {
-  //       title: 'Reusable Pads: A Sustainable and Affordable Solution to Addressing Period Poverty in Nigeria',
-  //       authors: 'Kuponiyi, S., Egwu, K., Ezema, M., Amusile, O., Victor, C., Ogochukwu Onukansi, F., Sunday, B., & Odey, G.',
-  //       year: '2024',
-  //       doi: '10.22541/au.171051556.60017362/v1'
-  //     },
-  //     {
-  //       title: 'Gender Dimension of Disasters in Africa',
-  //       authors: 'Odey, G., Sarah, O., Alhaj, S., & Lucero-Prisno, D.',
-  //       year: '2023',
-  //       doi: '10.4324/9781003140245-10'
-  //     }
-  //   ]
-  // },
   {
     id: 'sherifat-oriza',
     name: 'Sherifat Oriza',
+    "image": sherifat,
     initials: 'SO',
     title: 'Director of Communications',
     position: 4, // Director level
@@ -706,71 +857,18 @@ const teamMembers = ref<TeamMember[]>([
     methods: [],
     publications: []
   },
-  // {
-  //   id: 'olivier-sibomana',
-  //   name: 'Olivier Sibomana',
-  //   initials: 'OS',
-  //   title: 'Research and Publications Manager',
-  //   position: 5, // Manager level
-  //   profiles: [
-  //     { type: 'LinkedIn', url: 'https://www.linkedin.com/in/olivier-sibomana/' },
-  //     { type: 'ResearchGate', url: 'https://www.researchgate.net/profile/Olivier-Sibomana' },
-  //     { type: 'Google Scholar', url: 'https://scholar.google.com/citations?user=olivier-sibomana' },
-  //     { type: 'ORCID', url: 'https://orcid.org/olivier-sibomana' }
-  //   ],
-  //   bio: `Olivier Sibomana is a medical doctor candidate at the University of Rwanda, with a burgeoning career as a researcher in the fields of public health, health technology, molecular medicine, and translational research. He possesses strong leadership and research skills, demonstrated through his leadership roles such as serving as the Student Executive Committee Leader at the Foresight Institute of Research and Translation (FIRAT Rwanda), and as the Director of Research and Medical Content for both Meditechy Rwanda and the AMR Initiative Rwanda.
-  //   <br><br>
-  //   Sibomana has contributed to major research projects, including his roles as a research assistant and collaborator in initiatives such as the Assessing Genomic Diversity in Africa (AgenDA) project and Newborn Hearing Screening and Genetic Screening in Rwanda (NBHS-Rwanda).`,
-  //   methods: [
-  //     'Diagnostic Accuracy Studies',
-  //     'Scoping Reviews',
-  //     'Retrospective Hospital-Based Studies',
-  //     'Perspective/Policy Papers'
-  //   ],
-  //   publications: [
-  //     {
-  //       title: 'Understanding Health Inequality, Disparity and Inequity in Africa: A Rapid Review of Concepts, Root Causes, and Strategic Solutions',
-  //       authors: 'Oke, G., & Sibomana, O.',
-  //       year: '2025',
-  //       doi: '10.1002/puh2.70040'
-  //     },
-  //     {
-  //       title: 'Adoption of Digital Health Technology in Nigeria: A Scoping Review of Current Trends and Future Directions',
-  //       authors: 'Oke, G., & Sibomana, O.',
-  //       year: '2025',
-  //       doi: '10.1155/adph/4246285'
-  //     },
-  //     {
-  //       title: 'Diagnostic accuracy of ECG smart chest patches versus PPG smartwatches for atrial fibrillation detection: a systematic review and meta-analysis',
-  //       authors: 'Sibomana, O., Hakayuwa, C. M., Gahire, H., Munyantore, J., & Chilala, M.',
-  //       year: '2025',
-  //       doi: '10.1186/s12872-025-04582-2'
-  //     },
-  //     {
-  //       title: 'The Prevalence and Management of Aerodigestive Foreign Bodies at Rwanda Military Hospital: A Six-years Retrospective Study',
-  //       authors: 'Bukuru, J., Ngirinshuti, A., Kamanda, P., Kananga, W., Mukomeza, C., & Sibomana, O.',
-  //       year: '2025',
-  //       doi: '10.2147/OAEM.S493458'
-  //     },
-  //     {
-  //       title: 'Assessing the knowledge, attitudes, and perceptions toward smoking cessation among medical students in Rwanda',
-  //       authors: 'Oke, G., Sibomana, O., Ainebyona, A., Utaka, E., & Adebisi, Y.',
-  //       year: '2025',
-  //       doi: '10.21203/rs.3.rs-5891044/v1'
-  //     }
-  //   ]
-  // },
   {
   "id": "olivier-sibomana",
+  "image": olivier,
   "name": "Olivier Sibomana",
   "initials": "OS",
   "title": "Research and Publications Manager",
   "position": 5,
   "profiles": [
-    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/olivier-sibomana/" },
+    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/olivier-sibomana-253ab2207/" },
     { "type": "ResearchGate", "url": "https://www.researchgate.net/profile/Olivier-Sibomana" },
-    { "type": "Google Scholar", "url": "https://scholar.google.com/citations?user=olivier-sibomana" },
-    { "type": "ORCID", "url": "https://orcid.org/olivier-sibomana" }
+    { "type": "Google Scholar", "url": "https://scholar.google.com/citations?user=50FUWCoAAAAJ&hl=en" },
+    { "type": "ORCID", "url": "https://orcid.org/0000-0003-2226-3883" }
   ],
   "bio": `
      Olivier Sibomana is a doctor of medicine with a burgeoning career as a researcher in public health, health technology, molecular medicine, and translational research. He has authored several peer-reviewed articles in reputable journals across these fields. In addition to his academic contributions, he possesses strong leadership and communication skills, and is well-versed in various research methodologies and data analytics, engaging in multidisciplinary research with both rigor and relevance.
@@ -789,248 +887,150 @@ const teamMembers = ref<TeamMember[]>([
       "authors": "Oke, G., & Sibomana, O.",
       "year": "2025",
       "journal": "Public Health Challenges, 4",
-      "doi": "10.1002/puh2.70040"
+      "doi": "10.1002/puh2.70040",
+            "pubLink": "https://doi.org/10.1002/puh2.70040",
+      "doiLink": "https://doi.org/10.1002/puh2.70040"
     },
     {
       "title": "Adoption of Digital Health Technology in Nigeria: A Scoping Review of Current Trends and Future Directions",
       "authors": "Oke, G., & Sibomana, O.",
       "year": "2025",
       "journal": "Advances in Public Health, 2025",
-      "doi": "10.1155/adph/4246285"
+      "doi": "10.1155/adph/4246285",
+            "pubLink": "https://doi.org/10.1155/adph/4246285",
+      "doiLink": "https://doi.org/10.1155/adph/4246285"
     },
     {
       "title": "Diagnostic accuracy of ECG smart chest patches versus PPG smartwatches for atrial fibrillation detection: a systematic review and meta-analysis",
       "authors": "Sibomana, O., Hakayuwa, C. M., Gahire, H., Munyantore, J., & Chilala, M.",
       "year": "2025",
       "journal": "BMC Cardiovascular Disorders, 25, 132",
-      "doi": "10.1186/s12872-025-04582-2"
+      "doi": "10.1186/s12872-025-04582-2",
+            "pubLink": "https://doi.org/10.1186/s12872-025-04582-2",
+      "doiLink": "https://doi.org/10.1186/s12872-025-04582-2"
     },
     {
       "title": "The Prevalence and Management of Aerodigestive Foreign Bodies at Rwanda Military Hospital: A Six-years Retrospective Study",
       "authors": "Bukuru, J., Ngirinshuti, A., Kamanda, P., Kananga, W., Mukomeza, C., & Sibomana, O.",
       "year": "2025",
       "journal": "Open Access Emergency Medicine, 17, 137-147",
-      "doi": "10.2147/OAEM.S493458"
+      "doi": "10.2147/OAEM.S493458",
+            "pubLink": "https://doi.org/10.2147/OAEM.S493458",
+      "doiLink": "https://doi.org/10.2147/OAEM.S493458"
     },
     {
       "title": "Assessing the knowledge, attitudes, and perceptions toward smoking cessation among medical students in Rwanda",
       "authors": "Oke, G., Sibomana, O., Ainebyona, A., Utaka, E., & Adebisi, Y.",
       "year": "2025",
       "journal": "",
-      "doi": "10.21203/rs.3.rs-5891044/v1"
+      "doi": "10.21203/rs.3.rs-5891044/v1",
+            "pubLink": "https://doi.org/10.21203/rs.3.rs-5891044/v1",
+      "doiLink": "https://doi.org/10.21203/rs.3.rs-5891044/v1"
     },
     {
       "title": "Routine malaria vaccination in Africa: a step toward malaria eradication?",
       "authors": "Sibomana, O., Bukuru, J., Saka, S., Mwangi, A., Oluwo, D., Bueh, L., Agbelemoge, B., & Oveh, R.",
       "year": "2025",
       "journal": "Malaria Journal, 24",
-      "doi": "10.1186/s12936-024-05235-z"
+      "doi": "10.1186/s12936-024-05235-z",
+            "pubLink": "https://doi.org/10.1186/s12936-024-05235-z",
+      "doiLink": "https://doi.org/10.1186/s12936-024-05235-z"
     },
     {
       "title": "Knowledge, Attitude, and Practices of Antibiotic Usage and Resistance among People Attending Primary Healthcare in Rwanda",
       "authors": "Ndayisenga, J., Tuyishime, O., Sibomana, O., Kwizera, P., Niyompano, H., Hakizayezu, F., & Fitch, M.",
       "year": "2024",
       "journal": "Rwanda Journal of Medicine and Health Sciences, 7, 454-470",
-      "doi": "10.4314/rjmhs.v7i3.7"
+      "doi": "10.4314/rjmhs.v7i3.7",
+            "pubLink": "https://doi.org/10.4314/rjmhs.v7i3.7",
+      "doiLink": "https://doi.org/10.4314/rjmhs.v7i3.7"
     },
     {
       "title": "Genetic Diversity Landscape in African Population: A Review of Implications for Personalized and Precision Medicine",
       "authors": "Sibomana, O.",
       "year": "2024",
       "journal": "Pharmacogenomics and Personalized Medicine, 17, 487-496",
-      "doi": "10.2147/PGPM.S485452/"
+      "doi": "10.2147/PGPM.S485452/",
+            "pubLink": "https://doi.org/10.2147/PGPM.S485452",
+      "doiLink": "https://doi.org/10.2147/PGPM.S485452"
     },
     {
       "title": "Could virtual reality be a solution in surgical trainings in resource-restricted settings? A perspective",
       "authors": "Sibomana, O.",
       "year": "2024",
       "journal": "Surgery Open Science, 21, 14-16",
-      "doi": "10.1016/j.sopen.2024.08.004"
+      "doi": "10.1016/j.sopen.2024.08.004",
+            "pubLink": "https://doi.org/10.1016/j.sopen.2024.08.004",
+      "doiLink": "https://doi.org/10.1016/j.sopen.2024.08.004"
     },
     {
       "title": "Artificial intelligence in medicine: advantages and disadvantages for today and the future",
       "authors": "Salomon, I., & Sibomana, O.",
       "year": "2024",
       "journal": "International Journal of Surgery Open, 62",
-      "doi": "10.1097/IO9.0000000000000133"
+      "doi": "10.1097/IO9.0000000000000133",
+            "pubLink": "https://doi.org/10.1097/IO9.0000000000000133",
+      "doiLink": "https://doi.org/10.1097/IO9.0000000000000133"
     },
     {
       "title": "Advancing Hepatitis C Elimination in Africa: Insights from Egypt",
       "authors": "Salomon, I., Sibomana, O., & Ndayambaje, E.",
       "year": "2024",
       "journal": "Hepatic Medicine Evidence and Research, 2024, 37-44",
-      "doi": "10.2147/HMER.S470344"
+      "doi": "10.2147/HMER.S470344",
+            "pubLink": "https://doi.org/10.2147/HMER.S470344",
+      "doiLink": "https://doi.org/10.2147/HMER.S470344"
     },
     {
       "title": "Prevalence of post‐caesarean section surgical site infections in Rwanda: A systematic review and meta‐analysis",
       "authors": "Sibomana, O., Bugenimana, A., Oke, G., & Ndayambaje, E.",
       "year": "2024",
       "journal": "International Wound Journal, 21",
-      "doi": "10.1111/iwj.14929"
+      "doi": "10.1111/iwj.14929",
+            "pubLink": "https://doi.org/10.1111/iwj.14929", 
+      "doiLink": "https://doi.org/10.1111/iwj.14929"
     },
     {
       "title": "Advancing Hepatitis C Elimination in Africa: Insights from Egypt",
       "authors": "Salomon, I., & Sibomana, O.",
       "year": "2024",
       "journal": "",
-      "doi": "10.20944/preprints202403.0935.v1"
+      "doi": "10.20944/preprints202403.0935.v1",
+            "pubLink": "https://doi.org/10.20944/preprints202403.0935.v1",
+      "doiLink": "https://doi.org/10.20944/preprints202403.0935.v1"
     },
     {
       "title": "Addressing the evolving outbreak of Mpox disease in the Democratic Republic of Congo: Risk factors, challenges, and recommendations",
       "authors": "Sibomana, O., & Ndayambaje, E.",
       "year": "2024",
       "journal": "",
-      "doi": "10.22541/au.171002795.59908317/v1"
+      "doi": "10.22541/au.171002795.59908317/v1",
+            "pubLink": "https://doi.org/10.22541/au.171002795.59908317/v1",
+      "doiLink": "https://doi.org/10.22541/au.171002795.59908317/v1"
     },
     {
       "title": "The meningitis outbreak returns to Niger: Concern, efforts, challenges and recommendations",
       "authors": "Sibomana, O., Hakayuwa, C., & Hakayuwa, C. M.",
       "year": "2024",
       "journal": "",
-      "doi": "10.22541/au.170663699.98484836/v1"
+      "doi": "10.22541/au.170663699.98484836/v1",
+            "pubLink": "https://www.google.com/search?q=https://doi.org/10.22541/au.170663699.98484836/v1",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.22541/au.170663699.98484836/v1"
     }
   ]
 },
   {
-    id: 'fadele-precious',
-    name: 'Fadele Precious Kehinde',
-    initials: 'FP',
-    title: 'Research Manager',
-    position: 6, // Manager level
-    profiles: [
-      { type: 'LinkedIn', url: 'https://www.linkedin.com/in/fadele-precious-kehinde/' },
-      { type: 'ResearchGate', url: 'https://www.researchgate.net/profile/Fadele-Precious-Kehinde' },
-      { type: 'Google Scholar', url: 'https://scholar.google.com/citations?user=fadele-precious-kehinde' },
-      { type: 'ORCID', url: 'https://orcid.org/fadele-precious-kehinde' }
-    ],
-    bio: `Kehinde Precious Fadele is an undergraduate medical student at the University of Nigeria, Enugu State, with a remarkable record of early-career research. Her scholarly pursuits are rooted in neurosurgery, neuro-oncology, neuro-infections, neurology, and global and public health. Notably, she has authored and co-authored over 30 peer-reviewed publications, encompassing original research, literature reviews, commentaries, and case reports, in reputable international journals.
-    <br><br>
-    Precious serves as the Editor-in-Chief for Wiley journal in the United States and contributes as a reviewer for the Annals of Medicine and Surgery Journal (UK), where she has evaluated over 81 manuscripts.`,
-    methods: [
-      'Case Reports & Series',
-      'Literature Reviews',
-      'Editorials/Perspectives',
-      'Survey Research'
-    ],
-    "publications": [
-    {
-      "title": "Revolutionizing aneurysm risk prediction: artificial intelligence's promise and challenges",
-      "authors": "Okon, I., Fadele, K., Chaurasia, B., Mbong, E., John, O. O., Kankam, S., Akpan, U., & III, D.",
-      "year": "2025",
-      "journal": "Annals of Medicine and Surgery, 87",
-      "doi": "10.1097/MS9.0000000000002917"
-    },
-    {
-      "title": "Neurotrauma in sports: concussion and chronic traumatic encephalopathy (CTE)",
-      "authors": "Fadele, K., Igwe, S., Egbo, K., Ernest, A., Somto, O., III, D., & Chaurasia, B.",
-      "year": "2025",
-      "journal": "Discover, 2",
-      "doi": "10.1007/s44337-025-00206-y"
-    },
-    {
-      "title": "December Editor's choice article \"The Evolving Role of Palliative Care in Older People with Glioblastoma\"",
-      "authors": "Okon, I., Osama, M., Akpan, A., Paleare, L. F., Ferreira, M. Y., Shafqat, M. D., Razouqi, Y., James, E., Omer, M., Ja'afar, I., Chaurasia, B., Iqbal, M., Balogun, S., Maidan, A., Jakhar, M., Fadele, K., Gbayisomore, T., & III, D.",
-      "year": "2024",
-      "journal": "World Neurosurgery",
-      "doi": "10.1016/S1878-8750(24)01857-6"
-    },
-    {
-      "title": "Addressing Mental Health in Africa: Integrating Mental Health First Aid Initiatives",
-      "authors": "Fadele, K., Ayuba, D., Igwe, S., Kolawole, E., Bianca, N., Owhor, G., Ogaya, J., & Lucero-Prisno, D. E.",
-      "year": "2024",
-      "journal": "",
-      "doi": "10.22541/au.173217242.26089066/v1"
-    },
-    {
-      "title": "The Current State of Spina Bifida in Low- and Middle-Income Countries: Where Does Africa Stand?",
-      "authors": "Okon, I., Temitope, A., Ogundele, I., Akpan, U., Mbong, E., Kasimieh, O., Chaurasia, B., James, E., Gbadebo, E., Fadele, K., Jader, A., John, O. O., Karmani, V., Erhayanmen, M., & III, D.",
-      "year": "2024",
-      "journal": "Neurochirurgie, 71",
-      "doi": "10.1016/j.neuchi.2024.101616"
-    },
-    {
-      "title": "Exploring Immunotherapeutic Strategies For Bacterial And Viral Diseases: Recent Advances, Challenges And Future Perspectives",
-      "authors": "Adedokun, A., Adigun, O., Muhammad Ibrahim, A., Idris, I., Ntasin, P. Y., Olowu, B., Ikele, C., & Fadele, K.",
-      "year": "2024",
-      "journal": "",
-      "doi": "10.20944/preprints202411.0105.v1"
-    },
-    {
-      "title": "Neurosurgical interventions in epilepsy management",
-      "authors": "Fadele, K., Egbo, K., III, D., & Chaurasia, B.",
-      "year": "2024",
-      "journal": "Neurosurgical Review, 47",
-      "doi": "10.1007/s10143-024-03036-1"
-    },
-    {
-      "title": "The Evolving Role of Palliative Care in Older People with Glioblastoma",
-      "authors": "Okon, I., Osama, M., Akpan, A., Paleare, L. F., Ferreira, M. Y., Shafqat, M. D., Razouqi, Y., James, E., Omer, M., Ja'afar, I., Chaurasia, B., Iqbal, M., Balogun, S., Maidan, A., Jakhar, M., Fadele, K., Gbayisomore, T., & Lucero-Prisno, D.",
-      "year": "2024",
-      "journal": "World Neurosurgery",
-      "doi": "10.1016/j.wneu.2024.09.125"
-    },
-    {
-      "title": "Obstacle to Neurosurgery residency: Research perspective in early age of career",
-      "authors": "Fadele, K., & Chaurasia, B.",
-      "year": "2024",
-      "journal": "Neurosurgical Review, 47",
-      "doi": "10.1007/s10143-024-02895-y"
-    },
-    {
-      "title": "Reducing the burden of repeated ventriculo-peritoneal shunt surgery and infection in low and middle income country",
-      "authors": "Fadele, K., & Chaurasia, B.",
-      "year": "2024",
-      "journal": "Neurosurgical Review, 47",
-      "doi": "10.1007/s10143-024-02712-6"
-    },
-    {
-      "title": "Influence of Social Media in Attracting Future Neurosurgeons to Neurosurgery",
-      "authors": "Fadele, K., Marappan, K., & Chaurasia, B.",
-      "year": "2024",
-      "journal": "Annals of Medicine and Surgery, 86",
-      "doi": "10.1097/MS9.0000000000002405"
-    },
-    {
-      "title": "Strengthening neurosurgical training programs in Sub-saharan Africa: a medical student's perspective",
-      "authors": "Okon, I., Akilimali, A., Chisvo, N., Al-Lami, B., Sebopelo, L., Gbayisomore, T., Masunga, D., Edet, E., John, O. O., Ewelike, S., III, D., Elijah Temitope, A., Nkansah-Poku, K., Bello, M., Fadele, K., & Erhayanmen, M.",
-      "year": "2024",
-      "journal": "Neurosurgical Review, 47",
-      "doi": "10.1007/s10143-024-02469-y"
-    },
-    {
-      "title": "Understanding the root of healing and beyond: Exploring the way forward for Alternative Medicine in Nigeria",
-      "authors": "Ayuba, D., Fadele, K., Ogaya, J., Kolawole, E., Sharma, S., Lucero-Prisno, E., & Iii,.",
-      "year": "2024",
-      "journal": "Bhutan Sorig Journal, 1",
-      "doi": "10.47811/bsj.0004050304"
-    },
-    {
-      "title": "Global Neurosurgical Challenges: A Focus on Central Asia",
-      "authors": "Okon, I., Akpan, U., III, D., Bankole, N., Shafqat, M. D., Rehman, I., Shafqat, M., Gbayisomore, T., Atallah, O., Maidan, A., Fadele, K., Musa, M., Ibrahim, M., Omer, M., Dzhusupov, K., Ermakhanfm, Z., Tygotov, T., Otaki, A., Toguzbaeva, K., & Chaurasia, B.",
-      "year": "2024",
-      "journal": "World Neurosurgery",
-      "doi": "10.1016/j.wneu.2024.05.067"
-    },
-    {
-      "title": "Mental health challenges in Nigeria: Bridging the gap between demand and resources",
-      "authors": "Fadele, K., Igwe, S., Toluwalogo, N.-O., Udokang, E., Ogaya, J., & Lucero-Prisno, D.",
-      "year": "2024",
-      "journal": "Cambridge Prisms: Global Mental Health, 11",
-      "doi": "10.1017/gmh.2024.19"
-    }
-  ]
-  },
-  {
   "id": "esther-bassey",
   "name": "Esther Bassey",
+  "image": esther,
   "initials": "EB",
-  "title": "Research Associate",
-  "position": 7,
+  "title": "Research and Knowledge Dissemination Manager",
+  "position": 6,
   "profiles": [
-    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/esther-bassey/" },
-    { "type": "ResearchGate", "url": "https://www.researchgate.net/profile/Esther-Basseyi" },
-    { "type": "Google Scholar", "url": "https://scholar.google.com/citations?user=esther-bassey" },
-    { "type": "ORCID", "url": "https://orcid.org/esther-bassey" }
+    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/esther-bassey-31000a192/" },
+    { "type": "ResearchGate", "url": "https://www.researchgate.net/profile/Esther-Bassey-9" },
+    { "type": "Google Scholar", "url": "https://scholar.google.com/citations?user=H-lvDnsAAAAJ&hl=en" },
+    { "type": "ORCID", "url": "https://orcid.org/0000-0001-9221-2219" }
   ],
   "bio": "Esther Bassey is an aspiring neuroscientist with interests in neuropharmacology, neuropsychiatry, digital health, and public health. She holds a Bachelor of Science in Medical Physiology from the University of Uyo, Nigeria, and has co-authored over ten peer-reviewed publications, contributing to neuroscience and global health. As a student editor for the International Journal of Medical Students (IJMS) and a reviewer for international journals, she actively advances medical research. She has interned at the Donders Institute for Brain, Cognition, and Behaviour, Radboud University, Netherlands, further deepening her expertise in neurobiology.\n<br><br>\nEsther has earned recognition as a two-time finalist in the iPitch Competition (Portugal) and secured second place at the Young European Scientist (YES) Meeting's Breakthrough Competition by Novartis. Her work in mental health awareness and public health aligns with her commitment to Sustainable Development Goal 3 (Good Health and Well-being). She has also participated in the British Medical Journal (BMJ) Summer Work Experience and interned with the West African Institute of Public Health, reinforcing her dedication to medical research and advocacy.",
   "methods": [
@@ -1047,179 +1047,192 @@ const teamMembers = ref<TeamMember[]>([
       "authors": "Abdul-Rahman, T., Ghosh, S., Kalmanovich, J., Wireko, A. A., Zivcevska, M., Khalifa, S., Bassey, E., Ali, N., Ferreira, M., Umar, T. P., Garg, N., Nweze, V., Inturu, V., Abdelwahab, M., Kurian, S., Alexiou, A., Alfaleh, M., Alqurashi, T., & Ashraf, G.",
       "year": "2023",
       "journal": "Journal of Neuroscience Research, 102",
-      "doi": "10.1002/jnr.25261"
+      "doi": "10.1002/jnr.25261",
+      "pubLink": "https://pubmed.ncbi.nlm.nih.gov/38284858/",
+      "doiLink": "https://doi.org/10.1002/jnr.25261",
     },
     {
       "title": "The current state, advancements and challenges of neurosurgical care in Rwanda - a short report",
       "authors": "Okon, I., Rehman, I., Oduoye, M., Akilimali, A., Byiringiro, E., Akpan, U., Bassey, E., Vérité Cyubahiro, Florence Umutoni, & Nkeshimana, M.",
       "year": "2024",
       "journal": "Neurosurgical Review, 47",
-      "doi": "10.1007/s10143-024-02453-6"
+      "doi": "10.1007/s10143-024-02453-6",
+               "pubLink": "https://pubmed.ncbi.nlm.nih.gov/38727790/",
+      "doiLink": "https://doi.org/10.1007/s10143-024-02453-6"
     },
     {
       "title": "Awareness, Coverage, and Barriers to COVID-19 Vaccination Among Undergraduate Students in Nigeria",
       "authors": "Effiong, F., Hassan, I., Olawuyi, D., Prosper, C., Araoye, J., Bassey, E., Enwerem, K., & Adebisi, Y.",
       "year": "2023",
       "journal": "International Journal of Medical Students, S106",
-      "doi": "10.5195/ijms.2023.2376"
+      "doi": "10.5195/ijms.2023.2376",
+            "pubLink": "https://ijms.info/IJMS/article/view/1908",
+      "doiLink": "https://doi.org/10.5195/ijms.2023.2376"
     },
     {
       "title": "Utility of Machine learning in the Management of Normal Pressure Hydrocephalus (NPH): A Systematic Review",
       "authors": "Pahwa, B., Tayal, A., Shukla, A., Soni, U., Gupta, N., Bassey, E., & Sharma, M.",
       "year": "2023",
       "journal": "World Neurosurgery, 177",
-      "doi": "10.1016/j.wneu.2023.06.080"
+      "doi": "10.1016/j.wneu.2023.06.080",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/37356488/",
+      "doiLink": "https://doi.org/10.1016/j.wneu.2023.06.080"
     },
     {
       "title": "Global Needs and Barriers for Medical Research Education: Initiatives to Solve the Physician-Scientist Shortage",
       "authors": "Schneider, M., Elsayid, A., Bassey, E., Găman, M.-A., Egan, C., Puyana, J., & Bonilla Escobar, F.",
       "year": "2023",
       "journal": "The International Journal of Medical Students, 11, 9-12",
-      "doi": "10.5195/ijms.2023.2011"
+      "doi": "10.5195/ijms.2023.2011",
+            "pubLink": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10487191/",
+      "doiLink": "https://doi.org/10.5195/ijms.2023.2011"
     },
     {
       "title": "Prospects of malaria vaccination in Nigeria: Anticipated challenges and lessons from previous vaccination campaigns",
       "authors": "Effiong, F., Makata, V., Bassey, E., Salachi, K., Sagide, M., Abdulameed, H., & Uwishema, O.",
       "year": "2022",
       "journal": "Annals of Medicine and Surgery",
-      "doi": "10.1016/j.amsu.2022.104385"
+      "doi": "10.1016/j.amsu.2022.104385",
+            "pubLink": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9421322/",
+      "doiLink": "https://doi.org/10.1016/j.amsu.2022.104385"
     },
     {
       "title": "COVID-19 and Poverty in South America: the Mental Health Implications",
       "authors": "Bassey, E., Gupta, A., Kapoor, A., & Bansal, A.",
       "year": "2022",
       "journal": "International Journal of Mental Health and Addiction, 21",
-      "doi": "10.1007/s11469-022-00765-6"
+      "doi": "10.1007/s11469-022-00765-6",
+            "pubLink": "https://psycnet.apa.org/record/2022-26872-001",
+      "doiLink": "https://doi.org/10.1007/s11469-022-00765-6"
     },
     {
       "title": "Typhoid Fever and COVID-19 Pandemic in Nigeria: A Call for Coordinated Action",
       "authors": "Bassey, E., Hasan, M. M., dos Santos Costa, A. C., Τsagkaris, C., Aborode, A., Karra-Aly, A., Essar, M., & Ahmad, S.",
       "year": "2021",
       "journal": "Einstein (São Paulo)",
-      "doi": "10.31744/einstein_journal/2021CE6796"
+      "doi": "10.31744/einstein_journal/2021CE6796",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/34932777/",
+      "doiLink": "https://doi.org/10.31744/einstein_journal/2021CE6796"
     },
     {
       "title": "Malnutrition and the mental health of children: the sub-Saharan Africa perspective",
       "authors": "Bassey, E., dos Santos Costa, A. C., Adnan, A., Xenophontos, E., Phadke, R., Ahmed, S., Ahmad, S., Essar, M., & Yasmin, F.",
       "year": "2021",
       "journal": "Pan African Medical Journal",
-      "doi": "10.11604/pamj-oh.2021.6.7.29586"
+      "doi": "10.11604/pamj-oh.2021.6.7.29586",
+            "pubLink": "https://www.researchgate.net/publication/356857898_Malnutrition_and_the_mental_health_of_children_the_sub-Saharan_Africa_perspective",
+      "doiLink": "https://doi.org/10.11604/pamj-oh.2021.6.7.29586"
     },
     {
       "title": "Floods, landslides and COVID-19 in the Uttarakhand State, India: Impact of Ongoing Crises on Public Health",
       "authors": "Corriero, A., Khan, F., Bassey, E., Bouaddi, O., dos Santos Costa, A. C., Outani, O., Ahmad, S., Essar, M., & Hasan, M. M.",
       "year": "2021",
       "journal": "Disaster Medicine and Public Health Preparedness",
-      "doi": "10.1017/dmp.2021.373"
+      "doi": "10.1017/dmp.2021.373",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/34937598/",
+      "doiLink": "https://doi.org/10.1017/dmp.2021.373"
     },
     {
       "title": "Lassa Fever and COVID-19 in Africa: A double crisis on the fragile health system",
       "authors": "Hasan, M. M., dos Santos Costa, A. C., Xenophontos, E., Mohanan, P., Bassey, E., Ahmad, S., & Essar, M.",
       "year": "2021",
       "journal": "Journal of Medical Virology, 93",
-      "doi": "10.1002/jmv.27169"
+      "doi": "10.1002/jmv.27169",
+            "pubLink": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8427126/",
+      "doiLink": "https://doi.org/10.1002/jmv.27169"
     },
     {
       "title": "Drug Supply Shortage in India during COVID-19 Pandemic: Efforts and Challenges",
       "authors": "Dapke, K., Phadke, R., Rocha, I. C., dos Santos Costa, A. C., Ahmad, S., Essar, M., Menon, V., Bassey, E., Malhotra, K., & Shah, J.",
       "year": "2021",
       "journal": "HPHR Journal, 31",
-      "doi": "10.54111/0001/EE7"
+      "doi": "10.54111/0001/EE7",
+            "pubLink": "https://bcphr.org/31-article-dapke/",
+      "doiLink": "https://doi.org/10.54111/0001/EE7"
     },
     {
       "title": "Pandemic Preparedness Strategies with an Eye on Displaced Populations in Yemen: Efforts and Challenges on Hand",
       "authors": "Miranda, A., Mohan, A., dos Santos Costa, A. C., Hussaini, M., Adnan, A., Dapke, K., Phadke, R., Bassey, E., Ahmed, S., Essar, M., Ahmad, S., Τsagkaris, C., Aborode, A., & Hashim, H.",
       "year": "2021",
       "journal": "31",
-      "doi": "10.54111/0001/EE12"
+      "doi": "10.54111/0001/EE12",
+            "pubLink": "https://bcphr.org/31-article-miranda/",
+      "doiLink": "https://doi.org/10.54111/0001/EE12"
     },
     {
       "title": "COVID-19 and its impacts: The situation in Niger republic",
       "authors": "Emmanuella, N., Udofa, E., Musa, S., Marc, M., David, S., Bassey, E., Essar, M., Adebisi, Y., & Lucero-Prisno, D.",
       "year": "2021",
       "journal": "Clinical Epidemiology and Global Health, 100797",
-      "doi": "10.1016/j.cegh.2021.100797"
+      "doi": "10.1016/j.cegh.2021.100797",
+            "pubLink": "https://pubmed.ncbi.nlm.nih.gov/34095612/",
+      "doiLink": "https://doi.org/10.1016/j.cegh.2021.100797"
     },
     {
       "title": "Climate change drives mass migration and threatens migrants' health: Is there a way out?",
       "authors": "Hasan, M. M., Ghosh, S., dos Santos Costa, A. C., Τsagkaris, C., Phadke, R., Bassey, E., Essar, M., Ahmad, S., & Shariful Islam, S. M.",
       "year": "2021",
       "journal": "Ethics, Medicine and Public Health, 18",
-      "doi": "10.1016/j.jemep.2021.100671"
+      "doi": "10.1016/j.jemep.2021.100671",
+            "pubLink": "https://www.researchgate.net/publication/351363083_Climate_change_drives_mass_migration_and_threatens_migrants'_health_Is_there_a_way_out",
+      "doiLink": "https://doi.org/10.1016/j.jemep.2021.100671"
     },
     {
       "title": "COVID‐19 and Zika: An emerging dilemma for Brazil",
       "authors": "dos Santos Costa, A. C., Hasan, M. M., Xenophontos, E., Mohanan, P., Bassey, E., Hashim, H., Ahmad, S., & Essar, M.",
       "year": "2021",
       "journal": "Journal of Medical Virology, 93",
-      "doi": "10.1002/jmv.27006"
+      "doi": "10.1002/jmv.27006",
+            "pubLink": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8251083/",
+      "doiLink": "https://doi.org/10.1002/jmv.27006"
     }
   ]
 },
-  // {
-  //   id: 'adebisi-yusuf',
-  //   name: 'Adebisi Yusuf',
-  //   initials: 'AY',
-  //   title: 'Research Consultant and Publications Manager',
-  //   position: 7, // Consultant level
-  //   profiles: [
-  //     { type: 'LinkedIn', url: 'https://www.linkedin.com/in/yusuff-adebayo-adebisi/' },
-  //     { type: 'ResearchGate', url: 'https://www.researchgate.net/profile/Yusuff-Adebayo-Adebisi' },
-  //     { type: 'Google Scholar', url: 'https://scholar.google.com/citations?user=yusuff-adebayo-adebisi' },
-  //     { type: 'ORCID', url: 'https://orcid.org/yusuff-adebayo-adebisi' }
-  //   ],
-  //   bio: `Yusuff Adebayo Adebisi is a distinguished global health professional, pharmacist, epidemiologist, and health systems researcher dedicated to advancing public health through research, innovative solutions, and impactful advocacy. He holds a pharmacy degree from the University of Ibadan and an MSc in Global Health Science and Epidemiology from the University of Oxford, where he was a Commonwealth Shared Scholar.
-  //   <br><br>
-  //   A prolific researcher, Yusuff has authored over 250 journal articles and contributed to seven book chapters, earning recognition as one of Nigeria's top 100 researchers. His pioneering contributions to COVID-19 research were highlighted in a 2023 bibliometric review, identifying him as Nigeria's leading contributor to COVID-19 publications.`,
-  //   methods: [
-  //     'Bibliometric Analyses',
-  //     'Narrative Reviews',
-  //     'Secondary Data Analysis',
-  //     'Cross-Country Comparative Studies',
-  //     'Qualitative Case Studies',
-  //     'Literature Synthesis',
-  //     'Survey Research',
-  //     'Multi-Country Collaborations'
-  //   ],
-  //   publications: [
-  //     {
-  //       title: 'Left behind no more: ensuring equitable vaccine access to curb mpox in Africa',
-  //       authors: 'Bolarinwa, O., Mohammed, A., Adebisi, Y., & Oyewo, O.',
-  //       year: '2025',
-  //       doi: '10.1093/inthealth/ihaf018'
-  //     },
-  //     {
-  //       title: 'Antibiotic Use and Misuse in Maritime Settings: Challenges and Implications for Global Antimicrobial Resistance Response',
-  //       authors: 'Shao, L., Adebisi, Y., & Adeola, Q.',
-  //       year: '2025',
-  //       doi: '10.1007/s11908-025-00860-4'
-  //     },
-  //     {
-  //       title: 'Determinants of knowledge of risks associated with cigarette smoking among adolescents in Scotland',
-  //       authors: 'Adebisi, Y., Ogunkola, I., Alshahrani, N., Jimoh, N., & Ilesanmi, O.',
-  //       year: '2025',
-  //       doi: '10.1093/eurpub/ckaf024'
-  //     },
-  //     {
-  //       title: 'Measuring and addressing violence against women with disabilities in Africa',
-  //       authors: 'Odimegwu, C., Bolarinwa, O., & Adebisi, Y.',
-  //       year: '2025',
-  //       doi: '10.4102/ajod.v14i0.1576'
-  //     },
-  //     {
-  //       title: 'Understanding Research Gaps and Priorities for Tobacco Harm Reduction in Low-Income and Middle-Income Countries',
-  //       authors: 'Adebisi, Y., Lungu, S., Curado, A., Oke, G., & Yach, D.',
-  //       year: '2025',
-  //       doi: '10.2139/ssrn.5149050'
-  //     }
-  //   ]
-  // }
+{
+  "id": "obadiah-okpokpo",
+  "name": "Obadiah Okpokpo",
+  "image": obadiah,
+  "initials": "OO",
+  "title": "Data Analyst",
+  "position": 7,
+  "profiles": [
+    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/obadiah-okpokpo-6759a8162/" },
+    { "type": "ResearchGate", "url": "https://www.researchgate.net/profile/Obadiah-Okpokpo" }
+  ],
+  "bio": "Obadiah Okpokpo is a biomedical scientist and data analyst with expertise in clinical diagnostics, data science, and business intelligence. With over five years of experience, he has worked across research, laboratory diagnostics, and analytical roles. Obadiah is skilled in data analysis using Python, R, and SAS, as well as database querying with MySQL, and business intelligence tools such as Tableau and Power BI. Currently a Research Associate at Innovision Consulting, he leverages his analytical skills to drive data-driven decision-making and strategic insights.<br><br>Obadiah has held key roles including Founder and Team Lead at AlphaTrack Intelligence and Laboratory Analyst at Omega Laboratories Abuja, where he applied his expertise in diagnostics and research. His experience also spans clinical programming at ClinFocus (USA) and data science internships at Innov8 Hub, Nigeria. A graduate of Ambrose Alli University, he holds certifications such as SAS Programming 1: Essentials and a Verified International Academic Qualification from WES. His work focuses on bridging biomedical research and data analytics, using technology to improve healthcare solutions.",
+  "methods": [
+    "Community-Based Cross-Sectional Studies",
+    "Mixed-Methods Research (Qualitative & Quantitative)",
+    "Survey Research"
+  ],
+  "publications": [
+    {
+      "title": "Experience of people living with leprosy at leprosy settlements in Nigeria",
+      "pubLink": "https://www.authorea.com/users/774146/articles/868820-experience-of-people-living-with-leprosy-at-leprosy-settlements-in-nigeria",
+      "authors": "Oke, G., Nsofor, I., Abubakar, B., Lucero‐Prisno, D., Sunday, A., Dibia, E., Okpokpo, O., Obeta, O. K., Babatunde, A., Adeyemi, A., Adeoye, P., & Utaka, E.",
+      "year": "2024",
+      "journal": "Public Health Challenges, 3",
+      "doiLink": 'https://doi.org/10.1002/puh2.171',
+      "doi": "10.1002/puh2.171"
+    },
+    {
+      "title": "Effect of Antituberculosis Medication on Serum Concentrations of Zinc (Zn), Copper (Cu), and Manganese (Mn) in Tuberculosis Patients",
+      "pubLink": "https://www.researchgate.net/publication/334828750_Effect_of_Antituberculosis_Medication_on_Serum_Concentrations_of_Zinc_Zn_Copper_Cu_and_Manganese_Mn_in_Tuberculosis_Patients",
+      "authors": "Okogun, G., Dic-Ijiewere, E., Okpokpo, O., & Omolumen, L.",
+      "year": "2019",
+      "journal": "Recent Advances in Biology and Medicine, 5(1)",
+      "doi": "10.18639/RABM.2019.869429",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.18639/RABM.2019.869429"
+    }
+  ]
+}
+
+
 ]);
 
 const searchQuery = ref('');
 const expandedMembers = ref<string[]>([]);
 const showBackToTop = ref(false);
-const isDarkMode = ref(false);
 const isSearchOpen = ref(false);
 
 // Computed properties - SIMPLIFIED to just sort by position
@@ -1267,15 +1280,15 @@ const scrollToTop = () => {
 const getProfileButtonClass = (type: string) => {
   switch (type) {
     case 'LinkedIn':
-      return 'bg-blue-100 text-blue-800 hover:bg-blue-200 dark:bg-blue-900 dark:text-cream-200 dark:hover:bg-blue-800';
+      return 'bg-blue-100 text-blue-800 hover:bg-blue-200';
     case 'ResearchGate':
-      return 'bg-light-green-100 text-blue-800 hover:bg-light-green-200 dark:bg-blue-900 dark:text-cream-200 dark:hover:bg-blue-800';
+      return 'bg-light-green-100 text-blue-800 hover:bg-light-green-200';
     case 'Google Scholar':
-      return 'bg-cream-100 text-blue-800 hover:bg-cream-200 dark:bg-blue-900 dark:text-cream-200 dark:hover:bg-blue-800';
+      return 'bg-cream-100 text-blue-800 hover:bg-cream-200';
     case 'ORCID':
-      return 'bg-light-green-100 text-blue-800 hover:bg-light-green-200 dark:bg-blue-900 dark:text-cream-200 dark:hover:bg-blue-800';
+      return 'bg-light-green-100 text-blue-800 hover:bg-light-green-200';
     default:
-      return 'bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700';
+      return 'bg-gray-100 text-gray-800 hover:bg-gray-200';
   }
 };
 
@@ -1294,23 +1307,8 @@ const getProfileIcon = (type: string) => {
   }
 };
 
-const toggleDarkMode = () => {
-  isDarkMode.value = !isDarkMode.value;
-  if (isDarkMode.value) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-};
-
 // Lifecycle hooks
 onMounted(() => {
-  // Check system preference for dark mode
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    isDarkMode.value = true;
-    document.documentElement.classList.add('dark');
-  }
-  
   // Handle scroll events for back-to-top button
   window.addEventListener('scroll', () => {
     showBackToTop.value = window.scrollY > 500;
@@ -1431,14 +1429,5 @@ watch(searchQuery, () => {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
-}
-
-/* Ensure dark mode works properly */
-:root {
-  color-scheme: light dark;
-}
-
-.dark {
-  color-scheme: dark;
 }
 </style>

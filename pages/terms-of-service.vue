@@ -23,12 +23,12 @@
         <div class="mx-auto max-w-3xl">
           <div class="prose prose-lg prose-olg max-w-none animate-fade-in">
             <p class="lead-paragraph">
-              At OLGnova, we believe that clear expectations are the foundation of effective partnerships. 
+              At OLGNova, we believe that clear expectations are the foundation of effective partnerships. 
               Our terms of service are designed to ensure transparency, accountability, and mutual understanding 
               throughout every phase of our work together.
             </p>
             <p>
-              By engaging OLGnova, you acknowledge and agree to the following terms:
+              By engaging OLGNova, you acknowledge and agree to the following terms:
             </p>
             
             <div class="terms-section animate-slide-up mt-10" style="animation-delay: 200ms;">
@@ -79,7 +79,7 @@
                   Intellectual Property
                 </h2>
                 <p>
-                  Clients retain full rights to final deliverables. However, OLGnova maintains ownership of any 
+                  Clients retain full rights to final deliverables. However, OLGNova maintains ownership of any 
                   pre-existing materials or methodologies used during the project. Any shared proprietary information 
                   is handled with confidentiality.
                 </p>
@@ -93,7 +93,7 @@
                   Limitation of Liability
                 </h2>
                 <p>
-                  OLGnova's liability is limited to the amount paid for services under the applicable project agreement. 
+                  OLGNova's liability is limited to the amount paid for services under the applicable project agreement. 
                   We are not liable for indirect or consequential damages that may arise from the use of our deliverables.
                 </p>
               </div>

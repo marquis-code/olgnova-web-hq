@@ -8,7 +8,7 @@
           </h1>
           <div class="w-24 h-1 bg-blue-600 dark:bg-cream-400 mx-auto mb-6 animate-scale-in"></div>
           <p class="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto animate-slide-up">
-            Find answers to common questions about OLGnova's services, programs, and how we can help your organization achieve its goals.
+            Find answers to common questions about OLGNova's services, programs, and how we can help your organization achieve its goals.
           </p>
         </div>
   
@@ -150,7 +150,7 @@
   // FAQ data
   const faqs = ref<FAQ[]>([
     {
-      question: "What services does OLGnova offer?",
+      question: "What services does OLGNova offer?",
       answer: `
         <p>We offer a comprehensive suite of services including:</p>
         <ul>
@@ -165,7 +165,7 @@
       `
     },
     {
-      question: "Can OLGnova help determine if my research is suitable for publication or conferences?",
+      question: "Can OLGNova help determine if my research is suitable for publication or conferences?",
       answer: `
         <p>Yes! If you have completed research and are unsure about its readiness for publication or presentation at a scientific conference, we can review it and provide expert feedback.</p>
         <p>Reach out to us through our contact form or email us directly at <a href="mailto:olgnovateam@gmail.com" class="text-blue-600 dark:text-cream-400 hover:underline">olgnovateam@gmail.com</a>.</p>
@@ -205,7 +205,7 @@
       `
     },
     {
-      question: "How does OLGnova ensure project accountability and transparency?",
+      question: "How does OLGNova ensure project accountability and transparency?",
       answer: `
         <p>Our approach to project management emphasizes:</p>
         <ul>
@@ -225,7 +225,7 @@
       `
     },
     {
-      question: "Can OLGnova support my organization with publication and knowledge dissemination?",
+      question: "Can OLGNova support my organization with publication and knowledge dissemination?",
       answer: `
         <p>Absolutely. We help craft high-quality:</p>
         <ul>
@@ -238,7 +238,7 @@
       `
     },
     {
-      question: "Where is OLGnova located?",
+      question: "Where is OLGNova located?",
       answer: `
         <p>We operate from two locations:</p>
         <div class="space-y-2">
@@ -254,7 +254,7 @@
       `
     },
     {
-      question: "How can I contact OLGnova?",
+      question: "How can I contact OLGNova?",
       answer: `
         <p>You can reach us by:</p>
         <ul>
