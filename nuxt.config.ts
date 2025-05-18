@@ -39,7 +39,7 @@ export default defineNuxtConfig({
   },
   
   build: {
-    transpile: ['vuedraggable', 'marked', 'dompurify', 'lucide-vue-next']
+    transpile: ['lucide-vue-next']
   },
   
   // Remove problematic modules and keep only essential ones
