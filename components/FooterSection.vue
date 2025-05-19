@@ -185,7 +185,7 @@
               <NuxtLink to="/faq" class="group flex items-center text-olg-cream/80 hover:text-olg-green text-white">
                 <span class="mr-2 h-1.5 w-1.5 rounded-full bg-olg-green opacity-0 transition-all duration-300 group-hover:opacity-100"></span>
                 <span class="relative overflow-hidden">
-                  Faq
+                  FAQ
                   <span class="absolute bottom-0 left-0 h-0.5 w-0 bg-olg-green transition-all duration-500 group-hover:w-full"></span>
                 </span>
               </NuxtLink>

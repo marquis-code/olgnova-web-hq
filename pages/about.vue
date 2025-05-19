@@ -371,7 +371,8 @@
           </div>
           
           <!-- Testimonial -->
-          <div class="mt-16 lg:mt-24"
+           <TestimonialCard />
+          <!-- <div class="mt-16 lg:mt-24"
                v-motion
                :initial="{ opacity: 0, y: 50 }"
                :enter="{ opacity: 1, y: 0, transition: { delay: 1400, duration: 800 } }">
@@ -383,18 +384,20 @@
               </div>
               
               <blockquote class="text-xl/8 font-medium text-gray-900 italic">
-                "OLGNova's insights transformed the way we engage with our stakeholders. Their support was instrumental in aligning our strategy with real community needs.."
+                <svg class="inline" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M100,56H40A16,16,0,0,0,24,72v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,100,56Zm0,80H40V72h60ZM216,56H156a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,216,56Zm0,80H156V72h60Z"></path></svg>
+                OLGNova's insights transformed the way we engage with our stakeholders. Their support was instrumental in aligning our strategy with real community needs..
+                <svg class="inline" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M100,56H40A16,16,0,0,0,24,72v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,100,56Zm0,80H40V72h60ZM216,56H156a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,216,56Zm0,80H156V72h60Z"></path></svg>
               </blockquote>
               
               <div class="mt-8 flex items-center gap-x-4">
-                <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-12 w-12 rounded-full object-cover">
+                <img :src="peace" alt="" class="h-12 w-12 rounded-full object-cover">
                 <div>
                   <div class="font-semibold text-gray-900">Peace Iraguha</div>
                   <div class="text-sm text-gray-600">Chief Operations Officer, Lifesten Health Rwanda</div>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -658,6 +661,7 @@
 import { ref } from 'vue'
 import { useMotion } from '@vueuse/motion'
 import { useSubscribe } from "@/composables/modules/enquires/useSubscribe"
+  import peace from "@/assets/img/team-members7.jpeg"
 const { subscribe, isLoading } = useSubscribe()
 
 const servicesList = ref([

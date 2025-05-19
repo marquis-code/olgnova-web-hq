@@ -27,9 +27,9 @@
                   v-show="currentTestimonial === index"
                   class="testimonial-item"
                 >
-                  <p class="text-lg/8 text-gray-600 italic">
-                    "{{ testimonial.quote }}"
-                  </p>
+                <blockquote class="font-medium text-gray-900 text-lg italic">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M100,56H40A16,16,0,0,0,24,72v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,100,56Zm0,80H40V72h60ZM216,56H156a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,216,56Zm0,80H156V72h60Z"></path></svg>{{ testimonial.quote }}<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M100,56H40A16,16,0,0,0,24,72v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,100,56Zm0,80H40V72h60ZM216,56H156a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,216,56Zm0,80H156V72h60Z"></path></svg>
+                  </blockquote>
                   <div class="mt-4 flex items-center">
                     <div class="flex-shrink-0">
                       <img 
@@ -40,7 +40,7 @@
                     </div>
                     <div class="ml-3">
                       <p class="text-sm font-medium text-gray-900">{{ testimonial.author }}</p>
-                      <p class="text-xs text-gray-500">{{ testimonial.title }}</p>
+                      <p class="text-sm text-gray-500">{{ testimonial.title }}</p>
                     </div>
                   </div>
                 </div>
@@ -167,7 +167,8 @@
   import journoProject from "@/assets/img/the-journo-project.jpeg"
   import parFoundation from "@/assets/img/the-par-foundation.png"
   import lidesten from"@/assets/img/lifesten.png"
-  import avatar from "@/assets/icons/avatar.svg"
+  import peace from "@/assets/img/team-members7.jpeg"
+    import seun from  "@/assets/img/team-members8.jpeg"
   import { 
     ClipboardList, 
     MessageSquare, 
@@ -186,14 +187,14 @@
       quote: "OLGNova's insights transformed the way we engage with our stakeholders. Their support was instrumental in aligning our strategy with real community needs.",
       author: "Peace Iraguha",
       title: "Chief Operations Officer, Lifesten Health Rwanda",
-      avatar: avatar // Replace with actual avatar
+      avatar: peace // Replace with actual avatar
     },
     {
       id: 2,
       quote: "OLGNova is supporting us in studying disinformation as we uncover how it is experienced, amplified, and internalised, particularly in communities often overlooked in global discourse. Through our collaboration with their team, we hope to empower platforms, policymakers, and the public with evidence that drives meaningful change.",
       author: "Seun Durojaiye",
       title: "Founder and Editor, Social Voices",
-      avatar: avatar // Replace with actual avatar
+      avatar: seun // Replace with actual avatar
     }
   ];
   
