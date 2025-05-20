@@ -169,6 +169,7 @@ import precious from "@/assets/img/precious.png"
 import obadiah from "@/assets/img/obadiah.png"
 import sherifat from "@/assets/img/sherifat.png"
 import leonard from "@/assets/img/leonard.png"
+import melody from "@/assets/img/melody.png"
 import { 
   Search as SearchIcon, 
   ChevronDown as ChevronDownIcon, 
@@ -217,7 +218,7 @@ const teamMembers = ref<TeamMember[]>([
   "name": "Gabriel Oke",
   "image": gabriel,
   "initials": "GO",
-  "title": "Director and CEO OLGNova",
+  "title": "Director and CEO",
   "position": 1,
   "profiles": [
     { "type": "LinkedIn", "url": "https://www.linkedin.com/in/gabrieloke/" },
@@ -385,6 +386,168 @@ const teamMembers = ref<TeamMember[]>([
       "doi": "10.11604/pamj.supp.2020.35.2.22703",
             "pubLink": "https://www.researchgate.net/publication/341029877_SARS-CoV-2_diagnostic_testing_in_Africa_needs_and_challenges",
       "doiLink": "https://www.google.com/search?q=https://www.google.com/search%3Fq%3Dhttps://doi.org/10.11604/pamj.supp.2020.35.2.22703"
+    }
+  ]
+},
+{
+  "id": "olivier-sibomana",
+  "image": olivier,
+  "name": "Olivier Sibomana",
+  "initials": "OS",
+  "title": "Director of Research",
+  "position": 5,
+  "profiles": [
+    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/olivier-sibomana-253ab2207/" },
+    { "type": "ResearchGate", "url": "https://www.researchgate.net/profile/Olivier-Sibomana" },
+    { "type": "Google Scholar", "url": "https://scholar.google.com/citations?user=50FUWCoAAAAJ&hl=en" },
+    { "type": "ORCID", "url": "https://orcid.org/0000-0003-2226-3883" }
+  ],
+  "bio": `
+     Olivier Sibomana is a doctor of medicine with a burgeoning career as a researcher in public health, health technology, molecular medicine, and translational research. He has authored several peer-reviewed articles in reputable journals across these fields. In addition to his academic contributions, he possesses strong leadership and communication skills, and is well-versed in various research methodologies and data analytics, engaging in multidisciplinary research with both rigor and relevance.
+
+     Sibomana also serves as a peer reviewer for several reputable journals published by leading academic publishers such as Elsevier, Wiley, MDPI, and the Public Library of Science (PLOS). He firmly believes that through research, existing gaps can be identified and meaningfully addressed—paving the way for creativity, innovation, and sustainable solutions.
+  `,
+  "methods": [
+    "Diagnostic Accuracy Studies",
+    "Scoping Reviews",
+    "Retrospective Hospital-Based Studies",
+    "Perspective/Policy Papers"
+  ],
+  "publications": [
+    {
+      "title": "Understanding Health Inequality, Disparity and Inequity in Africa: A Rapid Review of Concepts, Root Causes, and Strategic Solutions",
+      "authors": "Oke, G., & Sibomana, O.",
+      "year": "2025",
+      "journal": "Public Health Challenges, 4",
+      "doi": "10.1002/puh2.70040",
+            "pubLink": "https://doi.org/10.1002/puh2.70040",
+      "doiLink": "https://doi.org/10.1002/puh2.70040"
+    },
+    {
+      "title": "Adoption of Digital Health Technology in Nigeria: A Scoping Review of Current Trends and Future Directions",
+      "authors": "Oke, G., & Sibomana, O.",
+      "year": "2025",
+      "journal": "Advances in Public Health, 2025",
+      "doi": "10.1155/adph/4246285",
+            "pubLink": "https://doi.org/10.1155/adph/4246285",
+      "doiLink": "https://doi.org/10.1155/adph/4246285"
+    },
+    {
+      "title": "Diagnostic accuracy of ECG smart chest patches versus PPG smartwatches for atrial fibrillation detection: a systematic review and meta-analysis",
+      "authors": "Sibomana, O., Hakayuwa, C. M., Gahire, H., Munyantore, J., & Chilala, M.",
+      "year": "2025",
+      "journal": "BMC Cardiovascular Disorders, 25, 132",
+      "doi": "10.1186/s12872-025-04582-2",
+            "pubLink": "https://doi.org/10.1186/s12872-025-04582-2",
+      "doiLink": "https://doi.org/10.1186/s12872-025-04582-2"
+    },
+    {
+      "title": "The Prevalence and Management of Aerodigestive Foreign Bodies at Rwanda Military Hospital: A Six-years Retrospective Study",
+      "authors": "Bukuru, J., Ngirinshuti, A., Kamanda, P., Kananga, W., Mukomeza, C., & Sibomana, O.",
+      "year": "2025",
+      "journal": "Open Access Emergency Medicine, 17, 137-147",
+      "doi": "10.2147/OAEM.S493458",
+            "pubLink": "https://doi.org/10.2147/OAEM.S493458",
+      "doiLink": "https://doi.org/10.2147/OAEM.S493458"
+    },
+    {
+      "title": "Assessing the knowledge, attitudes, and perceptions toward smoking cessation among medical students in Rwanda",
+      "authors": "Oke, G., Sibomana, O., Ainebyona, A., Utaka, E., & Adebisi, Y.",
+      "year": "2025",
+      "journal": "",
+      "doi": "10.21203/rs.3.rs-5891044/v1",
+            "pubLink": "https://doi.org/10.21203/rs.3.rs-5891044/v1",
+      "doiLink": "https://doi.org/10.21203/rs.3.rs-5891044/v1"
+    },
+    {
+      "title": "Routine malaria vaccination in Africa: a step toward malaria eradication?",
+      "authors": "Sibomana, O., Bukuru, J., Saka, S., Mwangi, A., Oluwo, D., Bueh, L., Agbelemoge, B., & Oveh, R.",
+      "year": "2025",
+      "journal": "Malaria Journal, 24",
+      "doi": "10.1186/s12936-024-05235-z",
+            "pubLink": "https://doi.org/10.1186/s12936-024-05235-z",
+      "doiLink": "https://doi.org/10.1186/s12936-024-05235-z"
+    },
+    {
+      "title": "Knowledge, Attitude, and Practices of Antibiotic Usage and Resistance among People Attending Primary Healthcare in Rwanda",
+      "authors": "Ndayisenga, J., Tuyishime, O., Sibomana, O., Kwizera, P., Niyompano, H., Hakizayezu, F., & Fitch, M.",
+      "year": "2024",
+      "journal": "Rwanda Journal of Medicine and Health Sciences, 7, 454-470",
+      "doi": "10.4314/rjmhs.v7i3.7",
+            "pubLink": "https://doi.org/10.4314/rjmhs.v7i3.7",
+      "doiLink": "https://doi.org/10.4314/rjmhs.v7i3.7"
+    },
+    {
+      "title": "Genetic Diversity Landscape in African Population: A Review of Implications for Personalized and Precision Medicine",
+      "authors": "Sibomana, O.",
+      "year": "2024",
+      "journal": "Pharmacogenomics and Personalized Medicine, 17, 487-496",
+      "doi": "10.2147/PGPM.S485452/",
+            "pubLink": "https://doi.org/10.2147/PGPM.S485452",
+      "doiLink": "https://doi.org/10.2147/PGPM.S485452"
+    },
+    {
+      "title": "Could virtual reality be a solution in surgical trainings in resource-restricted settings? A perspective",
+      "authors": "Sibomana, O.",
+      "year": "2024",
+      "journal": "Surgery Open Science, 21, 14-16",
+      "doi": "10.1016/j.sopen.2024.08.004",
+            "pubLink": "https://doi.org/10.1016/j.sopen.2024.08.004",
+      "doiLink": "https://doi.org/10.1016/j.sopen.2024.08.004"
+    },
+    {
+      "title": "Artificial intelligence in medicine: advantages and disadvantages for today and the future",
+      "authors": "Salomon, I., & Sibomana, O.",
+      "year": "2024",
+      "journal": "International Journal of Surgery Open, 62",
+      "doi": "10.1097/IO9.0000000000000133",
+            "pubLink": "https://doi.org/10.1097/IO9.0000000000000133",
+      "doiLink": "https://doi.org/10.1097/IO9.0000000000000133"
+    },
+    {
+      "title": "Advancing Hepatitis C Elimination in Africa: Insights from Egypt",
+      "authors": "Salomon, I., Sibomana, O., & Ndayambaje, E.",
+      "year": "2024",
+      "journal": "Hepatic Medicine Evidence and Research, 2024, 37-44",
+      "doi": "10.2147/HMER.S470344",
+            "pubLink": "https://doi.org/10.2147/HMER.S470344",
+      "doiLink": "https://doi.org/10.2147/HMER.S470344"
+    },
+    {
+      "title": "Prevalence of post‐caesarean section surgical site infections in Rwanda: A systematic review and meta‐analysis",
+      "authors": "Sibomana, O., Bugenimana, A., Oke, G., & Ndayambaje, E.",
+      "year": "2024",
+      "journal": "International Wound Journal, 21",
+      "doi": "10.1111/iwj.14929",
+            "pubLink": "https://doi.org/10.1111/iwj.14929", 
+      "doiLink": "https://doi.org/10.1111/iwj.14929"
+    },
+    {
+      "title": "Advancing Hepatitis C Elimination in Africa: Insights from Egypt",
+      "authors": "Salomon, I., & Sibomana, O.",
+      "year": "2024",
+      "journal": "",
+      "doi": "10.20944/preprints202403.0935.v1",
+            "pubLink": "https://doi.org/10.20944/preprints202403.0935.v1",
+      "doiLink": "https://doi.org/10.20944/preprints202403.0935.v1"
+    },
+    {
+      "title": "Addressing the evolving outbreak of Mpox disease in the Democratic Republic of Congo: Risk factors, challenges, and recommendations",
+      "authors": "Sibomana, O., & Ndayambaje, E.",
+      "year": "2024",
+      "journal": "",
+      "doi": "10.22541/au.171002795.59908317/v1",
+            "pubLink": "https://doi.org/10.22541/au.171002795.59908317/v1",
+      "doiLink": "https://doi.org/10.22541/au.171002795.59908317/v1"
+    },
+    {
+      "title": "The meningitis outbreak returns to Niger: Concern, efforts, challenges and recommendations",
+      "authors": "Sibomana, O., Hakayuwa, C., & Hakayuwa, C. M.",
+      "year": "2024",
+      "journal": "",
+      "doi": "10.22541/au.170663699.98484836/v1",
+            "pubLink": "https://www.google.com/search?q=https://doi.org/10.22541/au.170663699.98484836/v1",
+      "doiLink": "https://www.google.com/search?q=https://doi.org/10.22541/au.170663699.98484836/v1"
     }
   ]
 },
@@ -858,168 +1021,6 @@ const teamMembers = ref<TeamMember[]>([
     publications: []
   },
   {
-  "id": "olivier-sibomana",
-  "image": olivier,
-  "name": "Olivier Sibomana",
-  "initials": "OS",
-  "title": "Research and Publications Manager",
-  "position": 5,
-  "profiles": [
-    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/olivier-sibomana-253ab2207/" },
-    { "type": "ResearchGate", "url": "https://www.researchgate.net/profile/Olivier-Sibomana" },
-    { "type": "Google Scholar", "url": "https://scholar.google.com/citations?user=50FUWCoAAAAJ&hl=en" },
-    { "type": "ORCID", "url": "https://orcid.org/0000-0003-2226-3883" }
-  ],
-  "bio": `
-     Olivier Sibomana is a doctor of medicine with a burgeoning career as a researcher in public health, health technology, molecular medicine, and translational research. He has authored several peer-reviewed articles in reputable journals across these fields. In addition to his academic contributions, he possesses strong leadership and communication skills, and is well-versed in various research methodologies and data analytics, engaging in multidisciplinary research with both rigor and relevance.
-
-     Sibomana also serves as a peer reviewer for several reputable journals published by leading academic publishers such as Elsevier, Wiley, MDPI, and the Public Library of Science (PLOS). He firmly believes that through research, existing gaps can be identified and meaningfully addressed—paving the way for creativity, innovation, and sustainable solutions.
-  `,
-  "methods": [
-    "Diagnostic Accuracy Studies",
-    "Scoping Reviews",
-    "Retrospective Hospital-Based Studies",
-    "Perspective/Policy Papers"
-  ],
-  "publications": [
-    {
-      "title": "Understanding Health Inequality, Disparity and Inequity in Africa: A Rapid Review of Concepts, Root Causes, and Strategic Solutions",
-      "authors": "Oke, G., & Sibomana, O.",
-      "year": "2025",
-      "journal": "Public Health Challenges, 4",
-      "doi": "10.1002/puh2.70040",
-            "pubLink": "https://doi.org/10.1002/puh2.70040",
-      "doiLink": "https://doi.org/10.1002/puh2.70040"
-    },
-    {
-      "title": "Adoption of Digital Health Technology in Nigeria: A Scoping Review of Current Trends and Future Directions",
-      "authors": "Oke, G., & Sibomana, O.",
-      "year": "2025",
-      "journal": "Advances in Public Health, 2025",
-      "doi": "10.1155/adph/4246285",
-            "pubLink": "https://doi.org/10.1155/adph/4246285",
-      "doiLink": "https://doi.org/10.1155/adph/4246285"
-    },
-    {
-      "title": "Diagnostic accuracy of ECG smart chest patches versus PPG smartwatches for atrial fibrillation detection: a systematic review and meta-analysis",
-      "authors": "Sibomana, O., Hakayuwa, C. M., Gahire, H., Munyantore, J., & Chilala, M.",
-      "year": "2025",
-      "journal": "BMC Cardiovascular Disorders, 25, 132",
-      "doi": "10.1186/s12872-025-04582-2",
-            "pubLink": "https://doi.org/10.1186/s12872-025-04582-2",
-      "doiLink": "https://doi.org/10.1186/s12872-025-04582-2"
-    },
-    {
-      "title": "The Prevalence and Management of Aerodigestive Foreign Bodies at Rwanda Military Hospital: A Six-years Retrospective Study",
-      "authors": "Bukuru, J., Ngirinshuti, A., Kamanda, P., Kananga, W., Mukomeza, C., & Sibomana, O.",
-      "year": "2025",
-      "journal": "Open Access Emergency Medicine, 17, 137-147",
-      "doi": "10.2147/OAEM.S493458",
-            "pubLink": "https://doi.org/10.2147/OAEM.S493458",
-      "doiLink": "https://doi.org/10.2147/OAEM.S493458"
-    },
-    {
-      "title": "Assessing the knowledge, attitudes, and perceptions toward smoking cessation among medical students in Rwanda",
-      "authors": "Oke, G., Sibomana, O., Ainebyona, A., Utaka, E., & Adebisi, Y.",
-      "year": "2025",
-      "journal": "",
-      "doi": "10.21203/rs.3.rs-5891044/v1",
-            "pubLink": "https://doi.org/10.21203/rs.3.rs-5891044/v1",
-      "doiLink": "https://doi.org/10.21203/rs.3.rs-5891044/v1"
-    },
-    {
-      "title": "Routine malaria vaccination in Africa: a step toward malaria eradication?",
-      "authors": "Sibomana, O., Bukuru, J., Saka, S., Mwangi, A., Oluwo, D., Bueh, L., Agbelemoge, B., & Oveh, R.",
-      "year": "2025",
-      "journal": "Malaria Journal, 24",
-      "doi": "10.1186/s12936-024-05235-z",
-            "pubLink": "https://doi.org/10.1186/s12936-024-05235-z",
-      "doiLink": "https://doi.org/10.1186/s12936-024-05235-z"
-    },
-    {
-      "title": "Knowledge, Attitude, and Practices of Antibiotic Usage and Resistance among People Attending Primary Healthcare in Rwanda",
-      "authors": "Ndayisenga, J., Tuyishime, O., Sibomana, O., Kwizera, P., Niyompano, H., Hakizayezu, F., & Fitch, M.",
-      "year": "2024",
-      "journal": "Rwanda Journal of Medicine and Health Sciences, 7, 454-470",
-      "doi": "10.4314/rjmhs.v7i3.7",
-            "pubLink": "https://doi.org/10.4314/rjmhs.v7i3.7",
-      "doiLink": "https://doi.org/10.4314/rjmhs.v7i3.7"
-    },
-    {
-      "title": "Genetic Diversity Landscape in African Population: A Review of Implications for Personalized and Precision Medicine",
-      "authors": "Sibomana, O.",
-      "year": "2024",
-      "journal": "Pharmacogenomics and Personalized Medicine, 17, 487-496",
-      "doi": "10.2147/PGPM.S485452/",
-            "pubLink": "https://doi.org/10.2147/PGPM.S485452",
-      "doiLink": "https://doi.org/10.2147/PGPM.S485452"
-    },
-    {
-      "title": "Could virtual reality be a solution in surgical trainings in resource-restricted settings? A perspective",
-      "authors": "Sibomana, O.",
-      "year": "2024",
-      "journal": "Surgery Open Science, 21, 14-16",
-      "doi": "10.1016/j.sopen.2024.08.004",
-            "pubLink": "https://doi.org/10.1016/j.sopen.2024.08.004",
-      "doiLink": "https://doi.org/10.1016/j.sopen.2024.08.004"
-    },
-    {
-      "title": "Artificial intelligence in medicine: advantages and disadvantages for today and the future",
-      "authors": "Salomon, I., & Sibomana, O.",
-      "year": "2024",
-      "journal": "International Journal of Surgery Open, 62",
-      "doi": "10.1097/IO9.0000000000000133",
-            "pubLink": "https://doi.org/10.1097/IO9.0000000000000133",
-      "doiLink": "https://doi.org/10.1097/IO9.0000000000000133"
-    },
-    {
-      "title": "Advancing Hepatitis C Elimination in Africa: Insights from Egypt",
-      "authors": "Salomon, I., Sibomana, O., & Ndayambaje, E.",
-      "year": "2024",
-      "journal": "Hepatic Medicine Evidence and Research, 2024, 37-44",
-      "doi": "10.2147/HMER.S470344",
-            "pubLink": "https://doi.org/10.2147/HMER.S470344",
-      "doiLink": "https://doi.org/10.2147/HMER.S470344"
-    },
-    {
-      "title": "Prevalence of post‐caesarean section surgical site infections in Rwanda: A systematic review and meta‐analysis",
-      "authors": "Sibomana, O., Bugenimana, A., Oke, G., & Ndayambaje, E.",
-      "year": "2024",
-      "journal": "International Wound Journal, 21",
-      "doi": "10.1111/iwj.14929",
-            "pubLink": "https://doi.org/10.1111/iwj.14929", 
-      "doiLink": "https://doi.org/10.1111/iwj.14929"
-    },
-    {
-      "title": "Advancing Hepatitis C Elimination in Africa: Insights from Egypt",
-      "authors": "Salomon, I., & Sibomana, O.",
-      "year": "2024",
-      "journal": "",
-      "doi": "10.20944/preprints202403.0935.v1",
-            "pubLink": "https://doi.org/10.20944/preprints202403.0935.v1",
-      "doiLink": "https://doi.org/10.20944/preprints202403.0935.v1"
-    },
-    {
-      "title": "Addressing the evolving outbreak of Mpox disease in the Democratic Republic of Congo: Risk factors, challenges, and recommendations",
-      "authors": "Sibomana, O., & Ndayambaje, E.",
-      "year": "2024",
-      "journal": "",
-      "doi": "10.22541/au.171002795.59908317/v1",
-            "pubLink": "https://doi.org/10.22541/au.171002795.59908317/v1",
-      "doiLink": "https://doi.org/10.22541/au.171002795.59908317/v1"
-    },
-    {
-      "title": "The meningitis outbreak returns to Niger: Concern, efforts, challenges and recommendations",
-      "authors": "Sibomana, O., Hakayuwa, C., & Hakayuwa, C. M.",
-      "year": "2024",
-      "journal": "",
-      "doi": "10.22541/au.170663699.98484836/v1",
-            "pubLink": "https://www.google.com/search?q=https://doi.org/10.22541/au.170663699.98484836/v1",
-      "doiLink": "https://www.google.com/search?q=https://doi.org/10.22541/au.170663699.98484836/v1"
-    }
-  ]
-},
-  {
   "id": "esther-bassey",
   "name": "Esther Bassey",
   "image": esther,
@@ -1225,8 +1226,26 @@ const teamMembers = ref<TeamMember[]>([
       "doiLink": "https://www.google.com/search?q=https://doi.org/10.18639/RABM.2019.869429"
     }
   ]
+},
+{
+  "id": "melody-okerere",
+  "name": "Melody Okerere",
+  "image": melody,
+  "initials": "MO",
+  "title": "Research Consultant",
+  "position": 7,
+  "profiles": [
+    { "type": "LinkedIn", "url": "https://www.linkedin.com/in/melodyokereke/" },
+    { "type": "ResearchGate", "url": "https://scholar.google.com/citations?user=nSAC0zEAAAAJ&hl=en&oi=ao" },
+    { "type": "Google Scholar", "url": "https://www.researchgate.net/profile/Melody-Okereke-2" },
+    { "type": "ORCID", "url": "https://orcid.org/0000-0003-2533-6785" }
+  ],
+  "bio": `Melody Okereke is a distinguished youth leader and the Immediate Past (49th) National President of the Pharmaceutical Association of Nigeria Students (PANS), where he led over 40,000 students and implemented key reforms in welfare, leadership, and career growth.
+.  With a pharmacy background and a mini-MBA from Tekedia Institute (USA), Melody is a strong advocate for youth engagement in governance and policy, working closely with political stakeholders and serving on advisory boards to pharmaceutical CEOs across Africa. In science, he has been recognized twice as a Top 2% Best Scientist in the World, with over 50 publications to his name.  He is a 2024 IAS Global Young Leader, 2023 Diana Award recipient, and a scholar at global conferences. Currently, he serves as a Youth Advisor on Governance, Peace, and Migration to the EU Delegation in Nigeria and ECOWAS.
+`,
+  "methods": [],
+  "publications": []
 }
-
 
 ]);
 

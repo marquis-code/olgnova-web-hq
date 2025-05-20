@@ -327,9 +327,9 @@
   
   // Stats for impact section with animation flag
   const stats = ref([
-    { value: 25, suffix: '+', label: 'Publications', isHighlighted: true },
+    { value: 500, suffix: '+', label: 'Publications', isHighlighted: true },
     { value: 12, suffix: '', label: 'Countries Covered', isHighlighted: false },
-    { value: 45, suffix: 'K+', label: 'Citations', isHighlighted: true },
+    { value: 5, suffix: 'K+', label: 'Citations', isHighlighted: true },
     { value: 18, suffix: '', label: 'Research Partners', isHighlighted: false }
   ])
   

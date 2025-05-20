@@ -1,5 +1,5 @@
 <template>
-    <div class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="py-12 px-4 sm:px-6 lg:px-8 mt-10">
       <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-12">
@@ -101,7 +101,7 @@
       `
     },
     {
-      question: "Who can benefit from your services?",
+      question: "Who can benefit from our services?",
       answer: `
         <p>We work with:</p>
         <ul>
@@ -172,8 +172,8 @@
         <p>We operate from two locations:</p>
         <div class="space-y-2">
           <div>
-            <strong>Kigali, Rwanda</strong>
-            <p>1. KG 11 Ave</p>
+            <strong>Rwanda</strong>
+            <p>KG 11 Ave, Kigali, Rwanda</p>
           </div>
           <div>
             <strong>Nigeria</strong>
@@ -188,7 +188,7 @@
         <p>You can reach us by:</p>
         <ul>
           <li>📧 Email: <a href="mailto:olgnovateam@gmail.com">olgnovateam@gmail.com</a></li>
-          <li>📞 Phone: +250 788 249 545 | +44 7551 289858</li>
+          <li>📞 Phone: +250 788 249 545 | +447 551 289 858</li>
           <li>📬 Or fill out our online contact form — we're here to help!</li>
         </ul>
       `

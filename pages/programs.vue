@@ -144,7 +144,7 @@
               </div>
               
               <div class="mt-8 flex flex-wrap gap-4">
-                <a :href="`https://forms.gle/43tP3Cx2jDD9wAhYA`" target="_blank" class="btn-primary group">
+                <a :href="program.applicationLink" target="_blank" class="btn-primary group">
                   <span>Apply Now</span>
                   <ArrowRight class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
@@ -273,7 +273,7 @@
             Take the first step towards enhancing your skills and making a meaningful impact through our specialized programs.
           </p>
           <div class="flex flex-wrap gap-6 justify-center">
-            <a href="https://forms.gle/43tP3Cx2jDD9wAhYA" target="_blank" class="btn-white group">
+            <a :href="Program.applicationLink" target="_blank" class="btn-white group">
               <span>Apply Now</span>
               <ArrowRight class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -345,7 +345,7 @@
                 </div>
                 
                 <div class="mt-8 flex justify-center">
-                  <a href="https://forms.gle/43tP3Cx2jDD9wAhYA" target="_blank" class="btn-primary-dark group">
+                  <a :href="activeProgramDetails.applicationLink" target="_blank" class="btn-primary-dark group">
                     <span>Apply for this Program</span>
                     <ArrowRight class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </a>
@@ -412,6 +412,7 @@ interface Program {
   title: string
   subtitle: string
   description: string
+  applicationLink?: string
   coverImage: string
   overview: string
   responsibilities: string[]
@@ -424,6 +425,7 @@ const programs = ref<Program[]>([
   {
     id: 'emerging-researchers',
     title: 'Emerging Researchers Program',
+    applicationLink: "https://forms.gle/43tP3Cx2jDD9wAhYA",
     subtitle: 'Research & Innovation',
     description: 'Dedicated to nurturing future leaders who have recently graduated from university, this initiative offers hands-on training and experience in research, communication, and consulting. Participants collaborate on innovative projects, gaining practical skills while contributing to industry advancements.',
     coverImage: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
@@ -466,6 +468,7 @@ const programs = ref<Program[]>([
     id: 'research-fellowship',
     title: 'Advanced Research Fellowship',
     subtitle: 'Leadership & Expertise',
+    applicationLink: "https://forms.gle/EbUnXXCqp9GsQV7f8",
     description: 'Designed for experienced researchers and professionals, this fellowship provides a platform to lead groundbreaking research initiatives and mentor emerging talent. Fellows contribute their expertise to complex projects while further developing their leadership capabilities.',
     coverImage: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     overview: 'The Advanced Research Fellowship is our premier program for established researchers looking to make significant contributions to their field. Fellows lead research teams, develop innovative methodologies, and produce influential publications that shape industry practices and policy decisions.',

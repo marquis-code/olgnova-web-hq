@@ -211,8 +211,8 @@
   const metrics = [
     { value: 1500, label: "survey respondents engaged", icon: BarChart, prefix: "", suffix: "+" },
     { value: 6, label: "countries reached", icon: Globe, prefix: "", suffix: "" },
-    { value: 5, label: "communication strategies delivered", icon: Award, prefix: "", suffix: "" },
-    { value: 95, label: "satisfaction in recent client survey", icon: ThumbsUp, prefix: "", suffix: "%" }
+    { value: 10, label: "communication strategies delivered", icon: Award, prefix: "", suffix: "" },
+    { value: 98, label: "satisfaction in recent client survey", icon: ThumbsUp, prefix: "", suffix: "%" }
   ];
   
   // Services data
